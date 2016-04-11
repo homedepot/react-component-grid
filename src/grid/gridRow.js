@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 
 export default class GridRow extends Component {
     render() {
         return (
-            <div>
+            <div style={{ display: 'flex' }}>
                 { this.props.children }
             </div>
         );
@@ -12,4 +11,5 @@ export default class GridRow extends Component {
 }
 
 GridRow.propTypes = {
+    children: PropTypes.object.isRequired
 };
