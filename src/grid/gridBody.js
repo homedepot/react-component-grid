@@ -9,7 +9,8 @@ const GridBodyComponent = props => {
         const tableColumns = columns.map((column, i) => {
             const fieldValue = item[column.data];
             const fieldComponent = column.component(fieldValue);
-            return (<GridColumn key={ i }>{ fieldComponent }</GridColumn>);
+            const fieldStyles = column.styles ? column.styles : null;
+            return (<GridColumn key={ i } styles={fieldStyles} >{ fieldComponent }</GridColumn>);
         }, this);
         return (<GridRow key={ r }>{ tableColumns }</GridRow>);
     }, this);

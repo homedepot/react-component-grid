@@ -1,15 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
-export default class GridRow extends Component {
-    render() {
-        return (
-            <div style={{ display: 'flex' }}>
-                { this.props.children }
-            </div>
-        );
-    }
-}
+const GridRowComponent = props => (
+    <div style={{ display: 'flex' }}>
+        { props.children }
+    </div>
+);
 
-GridRow.propTypes = {
-    children: PropTypes.object.isRequired
+GridRowComponent.propTypes = {
+    children: PropTypes.array.isRequired
 };
+
+export default GridRowComponent;
