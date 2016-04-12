@@ -1,15 +1,28 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
+import _ from 'lodash';
 
-export default class GridHeader extends Component {
-    render() {
-        return (
-            <div>
-                Header!
+const renderColumnHeaders = columns => (
+    _.map(columns, (columnName) =>
+        (
+            <div key={ columnName } style={{ flex: '1 0 0px' }}>
+                { columnName }
             </div>
-        );
-    }
-}
+        )
+    )
+);
 
-GridHeader.propTypes = {
-    children: PropTypes.object.isRequired
+const GridHeaderComponent = props => {
+    const { columns } = props;
+    const headerColumns = renderColumnHeaders(columns);
+    return (
+        <div style={{ display: 'flex' }}>
+            { headerColumns }
+        </div>
+    );
 };
+
+GridHeaderComponent.propTypes = {
+    columns: PropTypes.array.isRequired
+};
+
+export default GridHeaderComponent;

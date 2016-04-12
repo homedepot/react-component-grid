@@ -1,29 +1,27 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
 import GridRow from './gridRow';
 import GridColumn from './gridColumn';
 
-export default class GridBody extends Component {
-    render() {
-        const { data } = this.props;
-
-        const columns = Object.keys(data[0]);
-
-        const tableRows = data.map(function (item, r) {
-            const tableColumns = columns.map((column, i) => {
-                const fieldValue = item[column];
-                return (<GridColumn key={ i }>{ fieldValue }</GridColumn>);
-            }, this);
-            return (<GridRow key={ r }>{ tableColumns }</GridRow>);
+const GridBodyComponent = props => {
+    const { data, columns } = props;
+    const tableRows = data.map(function (item, r) {
+        const tableColumns = columns.map((column, i) => {
+            const fieldValue = item[column];
+            return (<GridColumn key={ i }>{ fieldValue }</GridColumn>);
         }, this);
-        return (
-            <div>
-                { tableRows }
-            </div>
-        );
-    }
-}
-
-GridBody.propTypes = {
-    data: PropTypes.array.isRequired
+        return (<GridRow key={ r }>{ tableColumns }</GridRow>);
+    }, this);
+    return (
+        <div>
+            { tableRows }
+        </div>
+    );
 };
+
+GridBodyComponent.propTypes = {
+    data: PropTypes.array.isRequired,
+    columns: PropTypes.array.isRequired
+};
+
+export default GridBodyComponent;

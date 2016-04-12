@@ -6,11 +6,12 @@ import GridBody from './gridBody';
 export default class ComponentGrid extends Component {
     render() {
         const { data } = this.props;
+        const columns = Object.keys(data[0]);
 
         return (
             <div>
-                <GridHeader />
-                <GridBody data={data} />
+                <GridHeader columns={columns} />
+                <GridBody data={data} columns={columns} />
             </div>
         );
     }
