@@ -1,21 +1,23 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
 import GridHeader from './gridHeader';
 import GridBody from './gridBody';
 
-export default class ComponentGrid extends Component {
-    render() {
-        const { data, columns } = this.props;
+const ComponentGridComponent = props => {
+    const { data, columns, rowClickHandler } = props;
 
-        return (
-            <div>
-                <GridHeader columns={columns} />
-                <GridBody data={data} columns={columns} />
-            </div>
-        );
-    }
-}
-
-ComponentGrid.propTypes = {
-    data: PropTypes.array.isRequired
+    return (
+        <div>
+            <GridHeader columns={columns} />
+            <GridBody data={data} columns={columns} rowClickHandler={rowClickHandler} />
+        </div>
+    );
 };
+
+ComponentGridComponent.propTypes = {
+    data: PropTypes.array.isRequired,
+    columns: PropTypes.array.isRequired,
+    rowClickHandler: PropTypes.func
+};
+
+export default ComponentGridComponent;

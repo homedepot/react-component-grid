@@ -1,13 +1,24 @@
 import React, { PropTypes } from 'react';
 
-const GridRowComponent = props => (
-    <div style={{ display: 'flex' }}>
-        { props.children }
-    </div>
-);
+export default class GridRowComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this._onClick = this._onClick.bind(this);
+    }
+    _onClick() {
+        this.props.rowClickHandler(this.props.id);
+    }
+    render() {
+        return (
+            <div style={{ display: 'flex' }} onClick={this._onClick}>
+                { this.props.children }
+            </div>
+        );
+    }
+}
 
 GridRowComponent.propTypes = {
-    children: PropTypes.array.isRequired
+    children: PropTypes.array.isRequired,
+    id: PropTypes.number.isRequired,
+    rowClickHandler: PropTypes.func
 };
-
-export default GridRowComponent;
