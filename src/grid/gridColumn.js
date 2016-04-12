@@ -1,15 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
-export default class GridColumn extends Component {
-    render() {
-        return (
-            <div style={{ flex: '1 0 0px' }}>
-                { this.props.children }
-            </div>
-        );
-    }
-}
+const GridColumnComponent = props => (
+    <div style={{ flex: '1 0 0px' }}>
+        { props.children }
+    </div>
+);
 
-GridColumn.propTypes = {
+GridColumnComponent.propTypes = {
     children: PropTypes.object.isRequired
 };
+
+export default GridColumnComponent;

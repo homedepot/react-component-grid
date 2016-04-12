@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import _ from 'lodash';
 
 const renderColumnHeaders = columns => (
-    _.map(columns, (columnName) =>
+    _.map(columns, (column) =>
         (
-            <div key={ columnName } style={{ flex: '1 0 0px' }}>
-                { columnName }
+            <div key={ column.header } style={{ flex: '1 0 0px' }}>
+                { column.header }
             </div>
         )
     )

@@ -5,8 +5,7 @@ import GridBody from './gridBody';
 
 export default class ComponentGrid extends Component {
     render() {
-        const { data } = this.props;
-        const columns = Object.keys(data[0]);
+        const { data, columns } = this.props;
 
         return (
             <div>
