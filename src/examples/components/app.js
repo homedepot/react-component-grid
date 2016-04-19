@@ -24,7 +24,8 @@ export default class App extends Component {
                 leadTime: 3,
                 quantity: { quantity: 1, baseUnit: 'board' },
                 fees: null,
-                subtotal: 2321.92
+                subtotal: 2321.92,
+                rowClass: 'text-muted'
             },
             {   
                 rowNumber: 1,
@@ -34,7 +35,8 @@ export default class App extends Component {
                 leadTime: 5,
                 quantity: { quantity: 1, baseUnit: 'board' },
                 fees: { explanation: 'Fees Waived' },
-                subtotal: 3285.12
+                subtotal: 3285.12,
+                rowClass: 'text-primary'
             },
         ];
 
