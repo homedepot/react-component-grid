@@ -17,6 +17,7 @@ const GridBodyComponent = props => {
               key={ r }
               rowClickHandler={ rowClickHandler }
               id={ item.id }
+              rowClass={ item.rowClass }
             >
                 { tableColumns }
             </GridRow>

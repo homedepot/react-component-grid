@@ -16,17 +16,18 @@ const renderColumnHeaders = columns => (
 );
 
 const GridHeaderComponent = props => {
-    const { columns } = props;
+    const { columns, headerClass } = props;
     const headerColumns = renderColumnHeaders(columns);
     return (
-        <div style={{ display: 'flex' }}>
+        <div className={headerClass} style={{ display: 'flex' }}>
             { headerColumns }
         </div>
     );
 };
 
 GridHeaderComponent.propTypes = {
-    columns: PropTypes.array.isRequired
+    columns: PropTypes.array.isRequired,
+    headerClass: PropTypes.string.isRequired
 };
 
 export default GridHeaderComponent;
