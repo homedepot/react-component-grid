@@ -86,7 +86,7 @@ export default class App extends Component {
                     <h1>Example - Vendor Options</h1>
                 </div>
                 <div className="panel-body">
-                    <ComponentGrid data={data} columns={columns} rowClickHandler={this._onRowClick} />
+                    <ComponentGrid data={data} columns={columns} headerClass={'text-primary'} rowClickHandler={this._onRowClick} />
                 </div>
             </div>
         );
