@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
-import SourceList from './searchTableCells/sourceList';
-import ProductImage from './searchTableCells/productImage';
-import ProductDescription from './searchTableCells/productDescription';
-
-import ComponentGrid from '../../../grid/componentGrid';
+import List from './list';
 
 export default class App extends Component {
-    _onRowClick(id) {
-        console.log(id);
-    }
-    render() {
+    constructor(props) {
+        super(props);
         const data = [
             {
                 rowNumber: 1,
@@ -31,43 +26,34 @@ export default class App extends Component {
                 rowClass: 'text-muted'
             },
         ];
-
-        const columns = [
-            {
-                data: 'image',
-                component: ProductImage,
-                maxWidth: '10px',
-                styles: [{ name: 'maxWidth', value: '80px' }]
-            },
-            {
-                data: 'name',
-                component: ProductDescription,
-                styles: [{ name: 'maxWidth', value: '200px' }]
-            },
-            {
-                data: 'sources',
-                component: SourceList,
-                styles: [{ name: 'maxWidth', value: '200px' }]
-            }
-        ];
-
+        this.addTenRows = this.addTenRows.bind(this);
+        this.state = { data };
+    }
+    getRow(name) {
+        return {
+            rowNumber: 1,
+            id: 123213,
+            sources: [{ name: 'Boise Cascade', imageUrl: 'http://cdn-5.famouslogos.us/images/boise-cascade-logo.jpg' }],
+            name,
+            additionalDescription: 'Rad Shovel XYZ',
+            image: { url: 'http://content.hdquotecenter.com/cdn/public/ergon/388/391/19/706/4ETIIZEZTSWWER4RZZHVE40V2C.jpg?h=160&w=160&mode=pad', alt: 'image', maxWidth: '50px' },
+            rowClass: 'text-muted'
+        };
+    }
+    addTenRows() {
+        const newRows = _.map([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], () =>
+            this.getRow('added row')
+        );
+        const existingData = _.cloneDeep(this.state.data);
+        const data = _.concat(existingData, newRows);
+        this.setState({ data });
+    }
+    render() {
         return (
-          <div className="panel panel-default">
-            <div className="panel-heading">
-              <h1>Example - Search Results</h1>
-            </div>
-            <div className="panel-body">
-              <ComponentGrid
-                data={data}
-                columns={columns}
-                headerClass={'text-primary'}
-                rowClickHandler={this._onRowClick}
-              />
-            </div>
+          <div>
+            <List rows={this.state.data} />
+            <button onClick={this.addTenRows}>Click me</button>
           </div>
         );
     }
 }
-
-App.propTypes = {
-};
