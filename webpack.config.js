@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3033',
     'webpack/hot/only-dev-server',
-    './src/examples/components/index'
+    './src/examples/search/components/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),

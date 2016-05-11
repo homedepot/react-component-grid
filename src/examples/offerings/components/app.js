@@ -8,7 +8,7 @@ import Quantity from './vendorTableCells/quantity';
 import Fees from './vendorTableCells/fees';
 import Subtotal from './vendorTableCells/subtotal';
 
-import ComponentGrid from '../../grid/componentGrid';
+import ComponentGrid from '../../../grid/componentGrid';
 
 export default class App extends Component {
     _onRowClick(id) {
@@ -28,7 +28,7 @@ export default class App extends Component {
                 rowClass: 'text-muted'
             },
             {   
-                rowNumber: 1,
+                rowNumber: 2,
                 id: 245454,
                 source: { name: 'International Wood Products', imageUrl: 'http://tricitylumber.com/files/2014/09/IVP.png?w=316&h=210&zc=2&cc=111111&a=t' },
                 pricing: { unitPrice: 51.53, baseUnit: 'board', bulkPricing: false },
