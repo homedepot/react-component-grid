@@ -16,7 +16,7 @@ export default class App extends Component {
     }
     render() {
         const data = [
-            {   
+            {
                 rowNumber: 1,
                 id: 123213,
                 source: { name: 'Boise Cascade', imageUrl: 'http://cdn-5.famouslogos.us/images/boise-cascade-logo.jpg' },
@@ -27,7 +27,7 @@ export default class App extends Component {
                 subtotal: 2321.92,
                 rowClass: 'text-muted'
             },
-            {   
+            {
                 rowNumber: 2,
                 id: 245454,
                 source: { name: 'International Wood Products', imageUrl: 'http://tricitylumber.com/files/2014/09/IVP.png?w=316&h=210&zc=2&cc=111111&a=t' },
@@ -46,7 +46,7 @@ export default class App extends Component {
                 header: '#',
                 component: LineNumber,
                 maxWidth: '10px',
-                styles: [{ name: 'maxWidth', value: '20px' }]
+                style: { maxWidth: '20px' }
             },
             {
                 data: 'pricing',

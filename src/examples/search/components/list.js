@@ -29,17 +29,18 @@ export default class List extends Component {
                 data: 'image',
                 component: ProductImage,
                 maxWidth: '10px',
-                styles: [{ name: 'maxWidth', value: '80px' }]
+                style: { maxWidth: '80px' },
+                className: 'product-image'
             },
             {
                 data: 'name',
                 component: ProductDescription,
-                styles: [{ name: 'maxWidth', value: '200px' }]
+                style: { maxWidth: '200px' }
             },
             {
                 data: 'sources',
                 component: SourceList,
-                styles: [{ name: 'maxWidth', value: '200px' }]
+                style: { maxWidth: '200px' }
             }
         ];
 
