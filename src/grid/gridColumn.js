@@ -1,13 +1,9 @@
 import React, { PropTypes } from 'react';
-import _ from 'lodash';
 
 const GridColumnComponent = props => {
-    let styles = { flex: '1 0 0px' };
-    _.forEach(props.styles, (style) => {
-        styles[style.name] = style.value;
-    });
+    const style = { flex: '1 0 0px' };
     return (
-        <div style={styles}>
+        <div style={{ ...props.style, ...style }} className={props.className}>
             { props.children }
         </div>
 	);
@@ -15,7 +11,8 @@ const GridColumnComponent = props => {
 
 GridColumnComponent.propTypes = {
     children: PropTypes.object.isRequired,
-    styles: PropTypes.array
+    style: PropTypes.object,
+    className: PropTypes.string
 };
 
 export default GridColumnComponent;

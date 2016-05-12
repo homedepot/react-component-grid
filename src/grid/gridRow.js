@@ -6,7 +6,10 @@ export default class GridRowComponent extends React.Component {
         this._onClick = this._onClick.bind(this);
     }
     _onClick() {
-        this.props.rowClickHandler(this.props.id);
+        const { rowClickHandler } = this.props;
+        if (rowClickHandler) {
+            rowClickHandler(this.props.id);
+        }
     }
     render() {
         return (
