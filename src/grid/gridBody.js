@@ -4,7 +4,7 @@ import GridRow from './gridRow';
 import GridColumn from './gridColumn';
 
 const GridBodyComponent = props => {
-    const { data, columns, rowClickHandler } = props;
+    const { data, columns, rowClickHandler, style } = props;
     const tableRows = data.map(function (item, r) {
         const tableColumns = columns.map((column, i) => {
             const fieldValue = item[column.data];
@@ -23,7 +23,7 @@ const GridBodyComponent = props => {
         );
     }, this);
     return (
-        <div>
+        <div style={style}>
             { tableRows }
         </div>
     );
@@ -32,7 +32,8 @@ const GridBodyComponent = props => {
 GridBodyComponent.propTypes = {
     data: PropTypes.array.isRequired,
     columns: PropTypes.array.isRequired,
-    rowClickHandler: PropTypes.func
+    rowClickHandler: PropTypes.func,
+    style: PropTypes.object
 };
 
 export default GridBodyComponent;

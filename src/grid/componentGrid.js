@@ -4,12 +4,12 @@ import GridHeader from './gridHeader';
 import GridBody from './gridBody';
 
 const ComponentGridComponent = props => {
-    const { data, columns, headerClass, rowClickHandler, style } = props;
+    const { data, columns, headerClass, rowClickHandler, style, rowsContainerStyle } = props;
 
     return (
         <div style={style}>
             <GridHeader headerClass={headerClass} columns={columns} />
-            <GridBody data={data} columns={columns} rowClickHandler={rowClickHandler} />
+            <GridBody data={data} columns={columns} rowClickHandler={rowClickHandler} style={rowsContainerStyle} />
         </div>
     );
 };
@@ -19,7 +19,8 @@ ComponentGridComponent.propTypes = {
     columns: PropTypes.array.isRequired,
     rowClickHandler: PropTypes.func,
     headerClass: PropTypes.string,
-    style: PropTypes.object
+    style: PropTypes.object,
+    rowsContainerStyle: PropTypes.object
 };
 
 export default ComponentGridComponent;
