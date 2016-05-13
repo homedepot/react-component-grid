@@ -57,6 +57,7 @@ export default class List extends Component {
                 columns={columns}
                 headerClass={'text-primary'}
                 rowClickHandler={this._onRowClick}
+                style={{ backgroundColor: '#EEE' }}
               />
             </div>
           </div>
