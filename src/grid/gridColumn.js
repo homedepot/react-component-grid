@@ -3,9 +3,9 @@ import React, { PropTypes } from 'react';
 const GridColumnComponent = props => {
     const style = { flex: '1 0 0px' };
     return (
-        <div style={{ ...props.style, ...style }} className={props.className}>
-            { props.children }
-        </div>
+      <div style={{ ...props.style, ...style }} className={props.className}>
+        {props.children}
+      </div>
 	);
 };
 

@@ -3,14 +3,11 @@ import _ from 'lodash';
 
 const renderColumnHeaders = columns => (
     _.map(columns, (column) => {
-        let styles = { flex: '1 0 0px' };
-        _.forEach(column.styles, (style) => {
-            styles[style.name] = style.value;
-        });
+        const style = { flex: '1 0 0px' };
         return (
-            <div key={ column.header } style={styles}>
-                { column.header }
-            </div>
+          <div key={column.header} style={{ ...column.style, ...style }}>
+            {column.header}
+          </div>
         );
     })
 );
@@ -19,9 +16,9 @@ const GridHeaderComponent = props => {
     const { columns, headerClass } = props;
     const headerColumns = renderColumnHeaders(columns);
     return (
-        <div className={headerClass} style={{ display: 'flex' }}>
-            { headerColumns }
-        </div>
+      <div className={headerClass} style={{ display: 'flex' }}>
+        {headerColumns}
+      </div>
     );
 };
 

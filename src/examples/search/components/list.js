@@ -30,12 +30,14 @@ export default class List extends Component {
                 component: ProductImage,
                 maxWidth: '10px',
                 style: { maxWidth: '80px' },
-                className: 'product-image'
+                className: 'product-image',
+                header: <div>Images</div>
             },
             {
                 data: 'name',
                 component: ProductDescription,
-                style: { maxWidth: '200px' }
+                style: { maxWidth: '200px' },
+                header: 'Description'
             },
             {
                 data: 'sources',
