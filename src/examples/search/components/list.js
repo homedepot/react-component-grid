@@ -36,13 +36,13 @@ export default class List extends Component {
             {
                 data: 'name',
                 component: ProductDescription,
-                style: { maxWidth: '200px' },
-                header: 'Description'
+                header: 'Descriptions',
+                flexGrow: 1
             },
             {
                 data: 'sources',
                 component: SourceList,
-                style: { maxWidth: '200px' }
+                header: 'Sources',
             }
         ];
 

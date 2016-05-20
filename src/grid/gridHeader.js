@@ -3,7 +3,8 @@ import _ from 'lodash';
 
 const renderColumnHeaders = columns => (
     _.map(columns, (column) => {
-        const style = { flex: '1 0 0px' };
+        const flexSize = column.flexGrow || '1';
+        const style = { flex: `${flexSize} 0 0px` };
         return (
           <div key={column.header} style={{ ...column.style, ...style }}>
             {column.header}

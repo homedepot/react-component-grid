@@ -9,16 +9,24 @@ const GridBodyComponent = props => {
         const tableColumns = columns.map((column, i) => {
             const fieldValue = item[column.data];
             const fieldComponent = column.component(fieldValue);
-            return (<GridColumn key={ i } style={column.style} className={column.className}>{ fieldComponent }</GridColumn>);
+            return (
+              <GridColumn
+                key={i}
+                style={column.style}
+                className={column.className}
+                flexGrow={column.flexGrow}
+              >
+                {fieldComponent}
+              </GridColumn>);
         }, this);
         return (
             <GridRow
               key={ r }
-              rowClickHandler={ rowClickHandler }
-              id={ item.id }
-              rowClass={ item.rowClass }
+              rowClickHandler={rowClickHandler}
+              id={item.id}
+              rowClass={item.rowClass}
             >
-                { tableColumns }
+                {tableColumns}
             </GridRow>
         );
     }, this);
