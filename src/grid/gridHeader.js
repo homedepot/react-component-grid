@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react';
 import _ from 'lodash';
 
 const renderColumnHeaders = columns => (
-    _.map(columns, (column) => {
+    _.map(columns, (column, i) => {
         const flexSize = column.flexGrow || '1';
         const style = { flex: `${flexSize} 0 0px` };
         return (
-          <div key={column.header} style={{ ...column.style, ...style }}>
+          <div key={i} style={{ ...column.style, ...style }}>
             {column.header}
           </div>
         );
