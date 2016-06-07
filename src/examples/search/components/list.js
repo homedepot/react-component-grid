@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 
 import SourceList from './searchTableCells/sourceList';
-import ProductImage from './searchTableCells/productImage';
 import ProductDescription from './searchTableCells/productDescription';
 
 import ComponentGrid from '../../../grid/componentGrid';
@@ -20,24 +19,21 @@ export default class List extends Component {
                 sources: row.sources,
                 name: row.name,
                 additionalDescription: row.additionalDescription,
-                image: row.image,
                 rowClass: row.rowClass
             },
         ));
         const columns = [
             {
-                data: 'image',
-                component: ProductImage,
-                maxWidth: '10px',
-                style: { maxWidth: '80px' },
-                className: 'product-image',
-                header: <div>Images</div>
-            },
-            {
                 data: 'name',
                 component: ProductDescription,
-                header: 'Descriptions',
+                header: '',
                 flexGrow: 1
+            },
+            {
+                data: 'additionalDescription',
+                component: ProductDescription,
+                header: 'Descriptions',
+                flexGrow: 2
             },
             {
                 data: 'sources',

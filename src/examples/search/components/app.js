@@ -10,19 +10,17 @@ export default class App extends Component {
             {
                 rowNumber: 1,
                 id: 123213,
-                sources: [{ name: 'Boise Cascade', imageUrl: 'http://cdn-5.famouslogos.us/images/boise-cascade-logo.jpg' }],
+                sources: [{ name: 'Vendor A' }, { name: 'Vendor B' }, { name: 'Vendor C' }],
                 name: 'Shovel',
                 additionalDescription: 'Rad Shovel XYZ',
-                image: { url: 'http://content.hdquotecenter.com/cdn/public/ergon/388/391/19/706/4ETIIZEZTSWWER4RZZHVE40V2C.jpg?h=160&w=160&mode=pad', alt: 'image', maxWidth: '50px' },
                 rowClass: 'text-muted'
             },
             {
                 rowNumber: 2,
                 id: 123214,
-                sources: [{ name: 'Boise Cascade', imageUrl: 'http://cdn-5.famouslogos.us/images/boise-cascade-logo.jpg' }],
-                name: 'Axe',
-                additionalDescription: 'Crazy Good Axe JKL',
-                image: { url: 'http://content.hdquotecenter.com/cdn/public/ergon/388/391/19/706/4ETIIZEZTSWWER4RZZHVE40V2C.jpg?h=160&w=160&mode=pad', alt: 'image', maxWidth: '50px' },
+                sources: [{ name: 'Vendor D' }],
+                name: 'Rake',
+                additionalDescription: 'Crazy Good Rake JKL',
                 rowClass: 'text-muted'
             },
         ];
@@ -32,11 +30,10 @@ export default class App extends Component {
     getRow(name) {
         return {
             rowNumber: 1,
-            id: 123213,
-            sources: [{ name: 'Boise Cascade', imageUrl: 'http://cdn-5.famouslogos.us/images/boise-cascade-logo.jpg' }],
+            id: 123215,
+            sources: [{ name: 'Vendor E' }],
             name,
-            additionalDescription: 'Rad Shovel XYZ',
-            image: { url: 'http://content.hdquotecenter.com/cdn/public/ergon/388/391/19/706/4ETIIZEZTSWWER4RZZHVE40V2C.jpg?h=160&w=160&mode=pad', alt: 'image', maxWidth: '50px' },
+            additionalDescription: 'New Product ABC',
             rowClass: 'text-muted'
         };
     }
@@ -52,7 +49,7 @@ export default class App extends Component {
         return (
           <div>
             <List rows={this.state.data} />
-            <button onClick={this.addTenRows}>Click me</button>
+            <button className="btn btn-primary" onClick={this.addTenRows}>More rows, please</button>
           </div>
         );
     }
