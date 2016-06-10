@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import { v4 } from 'node-uuid';
 
 import List from './list';
 
@@ -9,7 +10,7 @@ export default class App extends Component {
         const data = [
             {
                 rowNumber: 1,
-                id: 123213,
+                id: 'abc',
                 sources: [{ name: 'Vendor A' }, { name: 'Vendor B' }, { name: 'Vendor C' }],
                 name: 'Shovel',
                 additionalDescription: 'Rad Shovel XYZ',
@@ -17,7 +18,7 @@ export default class App extends Component {
             },
             {
                 rowNumber: 2,
-                id: 123214,
+                id: 'def',
                 sources: [{ name: 'Vendor D' }],
                 name: 'Rake',
                 additionalDescription: 'Crazy Good Rake JKL',
@@ -30,7 +31,7 @@ export default class App extends Component {
     getRow(name) {
         return {
             rowNumber: 1,
-            id: 123215,
+            id: v4(),
             sources: [{ name: 'Vendor E' }],
             name,
             additionalDescription: 'New Product ABC',
@@ -38,7 +39,7 @@ export default class App extends Component {
         };
     }
     addTenRows() {
-        const newRows = _.map([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], () =>
+        const newRows = _.map([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], () =>
             this.getRow('added row')
         );
         const existingData = _.cloneDeep(this.state.data);

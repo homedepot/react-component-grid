@@ -1,14 +1,20 @@
 import React, { PropTypes } from 'react';
+import isEqual from 'lodash/isEqual';
 
-const GridColumnComponent = props => {
-    const flexSize = props.flexGrow || '1';
-    const style = { flex: `${flexSize} 0 0px` };
-    return (
-      <div style={{ ...props.style, ...style }} className={props.className}>
-        {props.children}
-      </div>
-	);
-};
+class GridColumnComponent extends React.Component {
+    shouldComponentUpdate(nextProps) {
+        return !isEqual(this.props.children, nextProps.children);
+    }
+    render() {
+        const flexSize = this.props.flexGrow || '1';
+        const style = { flex: `${flexSize} 0 0px` };
+        return (
+          <div style={{ ...this.props.style, ...style }} className={this.props.className}>
+            {this.props.children}
+          </div>
+    	);
+    }
+}
 
 GridColumnComponent.propTypes = {
     children: PropTypes.object.isRequired,
