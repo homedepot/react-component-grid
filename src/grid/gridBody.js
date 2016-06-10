@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import find from 'lodash/find';
+import isEqual from 'lodash/isEqual';
 
 import GridRow from './gridRow';
 import GridColumn from './gridColumn';
@@ -32,13 +33,12 @@ const createRow = (item, tableColumns, rowClickHandler) => {
     );
 };
 
-const renderGridMap = (oldRows, newData, columns, rowClickHandler) => {
-    // iterate through the newData
-    // if the newData item refers to an oldRow and the data is the same, take the old row source
-    return newData.map((item, r) => {
-        // try to find the this item in the oldRows
+const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler) => {
+    return newData.map(item => {
+        const oldDataPoint = find(oldData, eachOldData => eachOldData.id === item.id);
         const oldRow = find(oldRows, eachOldRow => eachOldRow.key === item.id);
-        const tableColumns = (oldRow) ? oldRow.props.children : mapColumns(item, columns);
+        const letsReRenderThisRow = (!(oldDataPoint && isEqual(item, oldDataPoint)));
+        const tableColumns = !letsReRenderThisRow && oldRow ? oldRow.props.children : mapColumns(item, columns);
         return createRow(item, tableColumns, rowClickHandler);
     }, this);
 };
@@ -46,17 +46,19 @@ const renderGridMap = (oldRows, newData, columns, rowClickHandler) => {
 class GridBodyComponent extends React.Component {
     componentWillMount() {
         const { data, columns, rowClickHandler } = this.props;
-        const tableRows = renderGridMap(null, data, columns, rowClickHandler);
+        const tableRows = renderGridMap(null, null, data, columns, rowClickHandler);
         this.setState({
             tableRows,
         });
     }
     componentWillReceiveProps(nextProps) {
         const { data, columns, rowClickHandler } = nextProps;
-        const tableRows = renderGridMap(this.state.tableRows, data, columns, rowClickHandler);
-        this.setState({
-            tableRows,
-        });
+        if (!isEqual(this.props, nextProps)) {
+            const tableRows = renderGridMap(this.state.tableRows, this.props.data, data, columns, rowClickHandler);
+            this.setState({
+                tableRows,
+            });
+        }
     }
     render() {
         const { style } = this.props;
