@@ -20,8 +20,7 @@ const mapColumns = (item, columns) =>
           </GridColumn>);
     }, this);
 
-const createRow = (item, tableColumns, rowClickHandler) => {
-    return (
+const createRow = (item, tableColumns, rowClickHandler) => (
         <GridRow
           key={item.id}
           rowClickHandler={rowClickHandler}
@@ -31,17 +30,17 @@ const createRow = (item, tableColumns, rowClickHandler) => {
             {tableColumns}
         </GridRow>
     );
-};
 
-const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler) => {
-    return newData.map(item => {
+const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler) =>
+    newData.map(item => {
         const oldDataPoint = find(oldData, eachOldData => eachOldData.id === item.id);
         const oldRow = find(oldRows, eachOldRow => eachOldRow.key === item.id);
         const letsReRenderThisRow = (!(oldDataPoint && isEqual(item, oldDataPoint)));
-        const tableColumns = !letsReRenderThisRow && oldRow ? oldRow.props.children : mapColumns(item, columns);
+        const tableColumns = (!letsReRenderThisRow && oldRow) ?
+            oldRow.props.children :
+            mapColumns(item, columns);
         return createRow(item, tableColumns, rowClickHandler);
     }, this);
-};
 
 class GridBodyComponent extends React.Component {
     componentWillMount() {
@@ -54,7 +53,13 @@ class GridBodyComponent extends React.Component {
     componentWillReceiveProps(nextProps) {
         const { data, columns, rowClickHandler } = nextProps;
         if (!isEqual(this.props, nextProps)) {
-            const tableRows = renderGridMap(this.state.tableRows, this.props.data, data, columns, rowClickHandler);
+            const tableRows = renderGridMap(
+                this.state.tableRows,
+                this.props.data,
+                data,
+                columns,
+                rowClickHandler
+            );
             this.setState({
                 tableRows,
             });

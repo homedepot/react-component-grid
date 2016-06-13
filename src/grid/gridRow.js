@@ -25,7 +25,10 @@ export default class GridRowComponent extends React.Component {
 }
 
 GridRowComponent.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]).isRequired,
     rowClickHandler: PropTypes.func,
     rowClass: PropTypes.string
 };

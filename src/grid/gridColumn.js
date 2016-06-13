@@ -12,12 +12,12 @@ class GridColumnComponent extends React.Component {
           <div style={{ ...this.props.style, ...style }} className={this.props.className}>
             {this.props.children}
           </div>
-    	);
+        );
     }
 }
 
 GridColumnComponent.propTypes = {
-    children: PropTypes.object.isRequired,
+    children: PropTypes.element.isRequired,
     style: PropTypes.object,
     className: PropTypes.string,
     flexGrow: PropTypes.number
