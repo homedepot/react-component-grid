@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
-import _ from 'lodash';
+import map from 'lodash/map';
 
 const renderColumnHeaders = columns => (
-    _.map(columns, (column, i) => {
+    map(columns, (column, i) => {
         const flexSize = column.flexGrow || '1';
         const style = { flex: `${flexSize} 0 0px` };
         return (
