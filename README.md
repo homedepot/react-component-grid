@@ -18,7 +18,7 @@ Grid - Or datagrid. Or matrix. In this case, a framework of rectangular cells
 3 props are expected and required to use the component grid:
 
 data: An array containing the row-wise data you wish to display. Each data item MUST contain a unique id property (either string or number).
-
+```
 const data = [
         {
             id: 1,
@@ -31,21 +31,21 @@ const data = [
             
         },
     ];
-
+```
 columns: An array representation of the columns you wish to display
-
+```
 const columns = [
         {
             data: 'objectToSendToComponentAsProps',
             component: reactComponentToRenderInThisColumn,
         }
     ];
-
+```
 component: at least one component to render as a grid cell
-
+```
 const reactComponentToRenderInThisColumn = props => (
   <div>{props.quantity}</div>
 )
-
+```
 
 
