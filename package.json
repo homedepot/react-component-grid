@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./tools/build-lib.js",
-    "test-watch": "mocha ./_tests_/index.js --require babel-core/register --reporter nyan --watch"
+    "test-watch": "mocha ./_tests_/index.js --require babel-core/register --reporter nyan --watch",
+    "test": "mocha ./_tests_/index.js --require babel-core/register --reporter nyan"
   },
   "repository": {
     "type": "git",
