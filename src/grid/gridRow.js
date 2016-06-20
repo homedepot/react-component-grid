@@ -7,7 +7,7 @@ export default class GridRowComponent extends React.Component {
         this._onClick = this._onClick.bind(this);
     }
     shouldComponentUpdate(nextProps) {
-        return !isEqual(this.props.children, nextProps.children);
+        return !isEqual(this.props, nextProps);
     }
     _onClick() {
         const { rowClickHandler } = this.props;
