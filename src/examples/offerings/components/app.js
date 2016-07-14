@@ -11,32 +11,52 @@ import Subtotal from './vendorTableCells/subtotal';
 import ComponentGrid from '../../../grid/componentGrid';
 
 export default class App extends Component {
-    _onRowClick(id) {
+    constructor(props) {
+        super(props);
+        this.onRowClick = this.onRowClick.bind(this);
+        this.state = {
+            selectedId: null
+        };
+    }
+    onRowClick(id) {
+        this.setState({
+            selectedId: id
+        });
         console.log(id);
     }
     render() {
+        const generateRowClass = (id) => {
+            if (id === this.state.selectedId) {
+                return 'text-primary';
+            }
+
+            return 'text-muted';
+        };
+
+        const row1Id = 123213;
+        const row2Id = 245454;
         const data = [
             {
                 rowNumber: 1,
-                id: 123213,
+                id: row1Id,
                 source: { name: 'Boise Cascade', imageUrl: 'http://cdn-5.famouslogos.us/images/boise-cascade-logo.jpg' },
                 pricing: { unitPrice: 36.28, baseUnit: 'board', bulkPricing: true },
                 leadTime: 3,
                 quantity: { quantity: 1, baseUnit: 'board' },
                 fees: null,
                 subtotal: 2321.92,
-                rowClass: 'text-muted'
+                rowClass: generateRowClass(row1Id)
             },
             {
                 rowNumber: 2,
-                id: 245454,
+                id: row2Id,
                 source: { name: 'International Wood Products', imageUrl: 'http://tricitylumber.com/files/2014/09/IVP.png?w=316&h=210&zc=2&cc=111111&a=t' },
                 pricing: { unitPrice: 51.53, baseUnit: 'board', bulkPricing: false },
                 leadTime: 5,
                 quantity: { quantity: 1, baseUnit: 'board' },
                 fees: { explanation: 'Fees Waived' },
                 subtotal: 3285.12,
-                rowClass: 'text-primary'
+                rowClass: generateRowClass(row2Id)
             },
         ];
 
@@ -86,7 +106,7 @@ export default class App extends Component {
                     <h1>Example - Vendor Options</h1>
                 </div>
                 <div className="panel-body">
-                    <ComponentGrid data={data} columns={columns} headerClass={'text-primary'} rowClickHandler={this._onRowClick} />
+                    <ComponentGrid data={data} columns={columns} headerClass={'text-primary'} rowClickHandler={this.onRowClick} />
                 </div>
             </div>
         );
