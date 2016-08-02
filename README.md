@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/jonnyohjonnyo/react-component-grid.svg?branch=master)](https://travis-ci.org/jonnyohjonnyo/react-component-grid)
 
-# react-flexbox-component-grid
+# react-component-grid
 React Flexbox Component Grid provides a simple, flexbox-based grid to be used for tabular data or other scenarios where you desire a header-ed or header-less grid.
 
 React - Because componentized, one-way data flowish frontend development
@@ -48,4 +48,11 @@ const reactComponentToRenderInThisColumn = props => (
 )
 ```
 
+Key Contributors:
 
+* @jonnyohjonnyo
+* @thd-mesa
+
+Repo Admin:
+
+* @adron-orange
