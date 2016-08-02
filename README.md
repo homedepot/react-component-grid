@@ -50,9 +50,9 @@ const reactComponentToRenderInThisColumn = props => (
 
 Key Contributors:
 
-* @jonnyohjonnyo
-* @thd-mesa
+* [@jonnyohjonnyo](https://github.com/jonnyohjonnyo)
+* [@thd-mesa](https://github.com/thd-mesa)
 
 Repo Admin:
 
-* @adron-orange
+* [@adron-orange](https://github.com/adron-orange)
