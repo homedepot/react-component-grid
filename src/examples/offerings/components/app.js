@@ -31,15 +31,17 @@ export default class App extends Component {
             }
 
             return 'text-muted';
-        };
-
+        }
         const row1Id = 123213;
         const row2Id = 245454;
         const data = [
             {
                 rowNumber: 1,
                 id: row1Id,
-                source: { name: 'Boise Cascade', imageUrl: 'http://cdn-5.famouslogos.us/images/boise-cascade-logo.jpg' },
+                source: {
+                    name: 'Cascadia Lumber',
+                    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_Cascadia.svg/250px-Flag_of_Cascadia.svg.png'
+                },
                 pricing: { unitPrice: 36.28, baseUnit: 'board', bulkPricing: true },
                 leadTime: 3,
                 quantity: { quantity: 1, baseUnit: 'board' },
@@ -50,7 +52,10 @@ export default class App extends Component {
             {
                 rowNumber: 2,
                 id: row2Id,
-                source: { name: 'International Wood Products', imageUrl: 'http://tricitylumber.com/files/2014/09/IVP.png?w=316&h=210&zc=2&cc=111111&a=t' },
+                source: {
+                    name: 'Portland Wood Products',
+                    imageUrl: 'http://www.pdxblog.com/wp-content/uploads/2015/12/pdx-old-town-1.jpg'
+                },
                 pricing: { unitPrice: 51.53, baseUnit: 'board', bulkPricing: false },
                 leadTime: 5,
                 quantity: { quantity: 1, baseUnit: 'board' },
@@ -101,16 +106,25 @@ export default class App extends Component {
         ];
 
         return (
-            <div className="panel panel-default">
-                <div className="panel-heading">
-                    <h1>Example - Vendor Options</h1>
+            < div;
+        className = "panel panel-default" >
+            < div;
+        className = "panel-heading" >
+            < h1 > Example - Vendor;
+        Options < / h1 >
                 </div>
-                <div className="panel-body">
-                    <ComponentGrid data={data} columns={columns} headerClass={'text-primary'} rowClickHandler={this.onRowClick} />
+        < div;
+        className = "panel-body" >
+            < ComponentGrid;
+        data = {data};
+        columns = {columns};
+        headerClass = {'text-primary'};
+        rowClickHandler = {this.onRowClick
+    } />
                 </div>
-            </div>
-        );
-    }
+        < / div >;
+    )
+    };
 }
 
 App.propTypes = {
