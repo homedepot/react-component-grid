@@ -13,7 +13,7 @@
     "url": "git+https://github.com/joropeza/react-fullscreen-app-boilerplate.git"
   },
   "author": "Jon Oropeza <joropeza@gmail.com> (http://jonoropeza.com)",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/joropeza/react-fullscreen-app-boilerplate/issues"
   },
