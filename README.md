@@ -1,6 +1,6 @@
-[![Stories in Ready](https://badge.waffle.io/adron-orange/react-component-grid.png?label=ready&title=Ready)](https://waffle.io/adron-orange/react-component-grid)
+[![Stories in Ready](https://badge.waffle.io/homedepot/react-component-grid.png?label=ready&title=Ready)](https://waffle.io/homedepot/react-component-grid)
 
-[![Build Status](https://travis-ci.org/jonnyohjonnyo/react-component-grid.svg?branch=master)](https://travis-ci.org/jonnyohjonnyo/react-component-grid)
+[![Build Status](https://travis-ci.org/homedepot/react-component-grid.svg?branch=master)](https://travis-ci.org/homedepot/react-component-grid)
 
 # react-component-grid
 React Flexbox Component Grid provides a simple, flexbox-based grid to be used for tabular data or other scenarios where you desire a header-ed or header-less grid.
