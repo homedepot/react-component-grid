@@ -1,6 +1,6 @@
 {
-  "name": "react-component-grid",
-  "version": "0.2.2",
+  "name": "react-flexbox-component-grid",
+  "version": "0.2.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,12 +12,12 @@
     "type": "git",
     "url": "git+https://github.com/joropeza/react-fullscreen-app-boilerplate.git"
   },
-  "author": "Jon Oropeza <joropeza@gmail.com> (http://jonoropeza.com)",
+  "author": "Jon Oropeza <jon_oropeza@homedepot.com> (http://quotecenter.com)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/joropeza/react-fullscreen-app-boilerplate/issues"
+    "url": "https://github.com/homedepot/react-component-grid/issues"
   },
-  "homepage": "https://github.com/joropeza/react-fullscreen-app-boilerplate#readme",
+  "homepage": "https://github.com/homedepot/react-component-grid#readme",
   "devDependencies": {
     "babel-cli": "^6.7.5",
     "babel-core": "^6.6.4",
