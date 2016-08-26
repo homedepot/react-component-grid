@@ -1,7 +1,3 @@
-[![Stories in Ready](https://badge.waffle.io/homedepot/react-component-grid.png?label=ready&title=Ready)](https://waffle.io/homedepot/react-component-grid)
-
-[![Build Status](https://travis-ci.org/homedepot/react-component-grid.svg?branch=master)](https://travis-ci.org/homedepot/react-component-grid)
-
 # react-component-grid
 React Flexbox Component Grid provides a simple, flexbox-based grid to be used for tabular data or other scenarios where you desire a header-ed or header-less grid.
 
@@ -12,6 +8,10 @@ Flexbox - For a responsive, aligned grid that's easy to customize via parameters
 Component - Because just taking text or numbers is so un-Reactish, we expect to represent every cell with a component
 
 Grid - Or datagrid. Or matrix. In this case, a framework of rectangular cells
+
+[![Stories in Ready](https://badge.waffle.io/homedepot/react-component-grid.png?label=ready&title=Ready)](https://waffle.io/homedepot/react-component-grid)
+
+[![Build Status](https://travis-ci.org/homedepot/react-component-grid.svg?branch=master)](https://travis-ci.org/homedepot/react-component-grid)
 
 # Getting Started
 
