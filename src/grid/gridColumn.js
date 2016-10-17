@@ -6,9 +6,10 @@ class GridColumnComponent extends React.Component {
         return !isEqual(this.props.children, nextProps.children);
     }
     render() {
-        const style = { flex: '1 0 0px' };
+        const flexSize = this.props.flexGrow || '1';
+        const style = { flex: `${flexSize} 0 0px` };
         return (
-          <div style={{ ...style, ...this.props.style, }} className={this.props.className}>
+          <div style={{ ...style, ...this.props.style }} className={this.props.className}>
             {this.props.children}
           </div>
         );
@@ -18,7 +19,8 @@ class GridColumnComponent extends React.Component {
 GridColumnComponent.propTypes = {
     children: PropTypes.element.isRequired,
     style: PropTypes.object,
-    className: PropTypes.string
+    className: PropTypes.string,
+    flexGrow: PropTypes.number
 };
 
 export default GridColumnComponent;
