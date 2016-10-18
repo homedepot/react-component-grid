@@ -4,7 +4,9 @@ import map from 'lodash/map';
 const renderColumnHeaders = columns => (
     map(columns, (column, i) => {
         const flexSize = column.flexGrow || '1';
-        const style = { flex: `${flexSize} 0 0px` };
+        const flexShrink = column.flexShrink || '0';
+        const flexBasis = column.flexBasis || '0px';
+        const style = { flex: `${flexSize} ${flexShrink} ${flexBasis}` };
         return (
           <div key={i} style={{ ...column.style, ...style }}>
             {column.header}

@@ -15,6 +15,8 @@ const mapColumns = (item, columns) =>
             style={column.style}
             className={column.className}
             flexGrow={column.flexGrow}
+            flexShrink={column.flexShrink}
+            flexBasis={column.flexBasis}
           >
             {fieldComponent}
           </GridColumn>);
