@@ -13,6 +13,15 @@ Grid - Or datagrid. Or matrix. In this case, a framework of rectangular cells
 
 [![Build Status](https://travis-ci.org/homedepot/react-component-grid.svg?branch=master)](https://travis-ci.org/homedepot/react-component-grid)
 
+[![npm version](https://img.shields.io/npm/v/react-flexbox-component-grid.svg?style=flat)](https://www.npmjs.com/package/react-flexbox-component-grid)
+
+
+## Installation
+
+```
+$ npm i -S react-flexbox-component-grid
+```
+
 # Getting Started
 
 3 props are expected and required to use the component grid:
