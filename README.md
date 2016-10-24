@@ -61,7 +61,3 @@ Key Contributors:
 
 * [@jonnyohjonnyo](https://github.com/jonnyohjonnyo)
 * [@thd-mesa](https://github.com/thd-mesa)
-
-Repo Admin:
-
-* [@adron-orange](https://github.com/adron-orange)
