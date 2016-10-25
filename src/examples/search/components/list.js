@@ -3,6 +3,8 @@ import _ from 'lodash';
 
 import SourceList from './searchTableCells/sourceList';
 import ProductDescription from './searchTableCells/productDescription';
+import RowFooter from './rowFooter';
+import RowHeader from './rowHeader';
 
 import ComponentGrid from '../../../grid/componentGrid';
 
@@ -19,8 +21,10 @@ export default class List extends Component {
                 sources: row.sources,
                 name: row.name,
                 additionalDescription: row.additionalDescription,
-                rowClass: row.rowClass
-            },
+                rowClass: row.rowClass,
+                headerData: 'I am a header',
+                footerData: 'I am a footer',
+            }
         ));
         const columns = [
             {
@@ -42,6 +46,16 @@ export default class List extends Component {
             }
         ];
 
+        const rowHeader = {
+            data: 'headerData',
+            component: RowHeader
+        };
+
+        const rowFooter = {
+            data: 'footerData',
+            component: RowFooter
+        };
+
         return (
           <div className="panel panel-default">
             <div className="panel-heading">
@@ -53,6 +67,8 @@ export default class List extends Component {
                 columns={columns}
                 headerClass={'text-primary'}
                 rowClickHandler={this._onRowClick}
+                rowHeader={rowHeader}
+                rowFooter={rowFooter}
                 style={{ backgroundColor: '#EEE' }}
               />
             </div>
