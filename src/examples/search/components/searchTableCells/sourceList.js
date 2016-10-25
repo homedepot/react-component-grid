@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import _ from 'lodash';
 
 const SourceListComponent = sources => {
-    const sourceListItems = _.map(sources, source =>
-        (<li>{source.name}</li>)
+    const sourceListItems = _.map(sources, (source, i) =>
+        (<li key={i}>{source.name}</li>)
     );
     return (
       <ul className="plp-source-list">

@@ -17,9 +17,9 @@ export default class GridRowComponent extends React.Component {
     }
     render() {
         return (
-            <div className={this.props.rowClass} style={{ display: 'flex' }} onClick={this._onClick}>
-                {this.props.children}
-            </div>
+          <div className={this.props.rowClass} style={{ display: 'flex' }} onClick={this._onClick}>
+            {this.props.children}
+          </div>
         );
     }
 }
@@ -30,5 +30,6 @@ GridRowComponent.propTypes = {
         PropTypes.number,
     ]).isRequired,
     rowClickHandler: PropTypes.func,
-    rowClass: PropTypes.string
+    rowClass: PropTypes.string,
+    children: PropTypes.array,
 };
