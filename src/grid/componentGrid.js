@@ -10,19 +10,23 @@ const ComponentGridComponent = props => {
         headerClass,
         rowClickHandler,
         style,
+        useDefaultStyle,
         rowsContainerStyle,
         rowHeader,
         rowFooter
     } = props;
 
+    const setDefaultStyle = (typeof useDefaultStyle === 'undefined') ? true : useDefaultStyle;
+
     return (
       <div style={style}>
-        <GridHeader headerClass={headerClass} columns={columns} />
+        <GridHeader headerClass={headerClass} columns={columns} useDefaultStyle={setDefaultStyle} />
         <GridBody
           data={data}
           columns={columns}
           rowClickHandler={rowClickHandler}
           style={rowsContainerStyle}
+          useDefaultStyle={setDefaultStyle}
           rowHeader={rowHeader}
           rowFooter={rowFooter}
         />
@@ -36,6 +40,7 @@ ComponentGridComponent.propTypes = {
     rowClickHandler: PropTypes.func,
     headerClass: PropTypes.string,
     style: PropTypes.object,
+    useDefaultStyle: PropTypes.bool,
     rowsContainerStyle: PropTypes.object,
     rowHeader: PropTypes.shape({
         data: PropTypes.string.isRequired,

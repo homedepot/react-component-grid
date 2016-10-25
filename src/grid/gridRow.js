@@ -16,8 +16,10 @@ export default class GridRowComponent extends React.Component {
         }
     }
     render() {
+        const style = this.props.useDefaultStyle ? { display: 'flex' } : {};
+
         return (
-          <div className={this.props.rowClass} style={{ display: 'flex' }} onClick={this._onClick}>
+          <div className={this.props.rowClass} style={style} onClick={this._onClick}>
             {this.props.children}
           </div>
         );
@@ -32,4 +34,5 @@ GridRowComponent.propTypes = {
     rowClickHandler: PropTypes.func,
     rowClass: PropTypes.string,
     children: PropTypes.array,
+    useDefaultStyle: PropTypes.bool
 };
