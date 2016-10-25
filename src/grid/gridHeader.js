@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 import map from 'lodash/map';
 
-const renderColumnHeaders = columns => (
+const renderColumnHeaders = (columns, useDefaultStyle) => (
     map(columns, (column, i) => {
         const flexSize = column.flexGrow || '1';
         const flexShrink = column.flexShrink || '0';
         const flexBasis = column.flexBasis || '0px';
-        const style = { flex: `${flexSize} ${flexShrink} ${flexBasis}` };
+        const style = useDefaultStyle ? { flex: `${flexSize} ${flexShrink} ${flexBasis}` } : {};
+
         return (
           <div key={i} style={{ ...column.style, ...style }}>
             {column.header}
@@ -16,10 +17,11 @@ const renderColumnHeaders = columns => (
 );
 
 const GridHeaderComponent = props => {
-    const { columns, headerClass } = props;
-    const headerColumns = renderColumnHeaders(columns);
+    const { columns, headerClass, useDefaultStyle } = props;
+    const headerColumns = renderColumnHeaders(columns, useDefaultStyle);
+    const style = useDefaultStyle ? { display: 'flex' } : {};
     return (
-      <div className={headerClass} style={{ display: 'flex' }}>
+      <div className={headerClass} style={style}>
         {headerColumns}
       </div>
     );
@@ -27,7 +29,8 @@ const GridHeaderComponent = props => {
 
 GridHeaderComponent.propTypes = {
     columns: PropTypes.array.isRequired,
-    headerClass: PropTypes.string.isRequired
+    headerClass: PropTypes.string.isRequired,
+    useDefaultStyle: PropTypes.bool
 };
 
 export default GridHeaderComponent;

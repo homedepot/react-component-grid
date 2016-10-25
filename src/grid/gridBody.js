@@ -5,7 +5,7 @@ import isEqual from 'lodash/isEqual';
 import GridRow from './gridRow';
 import GridColumn from './gridColumn';
 
-const mapColumns = (item, columns) =>
+const mapColumns = (item, columns, useDefaultStyle) =>
     columns.map((column, i) => {
         const fieldValue = item[column.data];
         const fieldComponent = column.component(fieldValue);
@@ -17,6 +17,7 @@ const mapColumns = (item, columns) =>
             flexGrow={column.flexGrow}
             flexShrink={column.flexShrink}
             flexBasis={column.flexBasis}
+            useDefaultStyle={useDefaultStyle}
           >
             {fieldComponent}
           </GridColumn>);
@@ -27,7 +28,7 @@ const isValidRowHeaderOrFooter = (obj) =>
     typeof obj.component !== 'undefined' &&
     typeof obj.data !== 'undefined';
 
-const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter) => {
+const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle) => {
     let rowHeaderComponent;
     if (isValidRowHeaderOrFooter(rowHeader)) {
         rowHeaderComponent = rowHeader.component(item[rowHeader.data]);
@@ -45,6 +46,7 @@ const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter) =>
           rowClickHandler={rowClickHandler}
           id={item.id}
           rowClass={item.rowClass}
+          useDefaultStyle={useDefaultStyle}
           key={item.id}
         >
           {tableColumns}
@@ -54,7 +56,7 @@ const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter) =>
     );
 };
 
-const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowHeader, rowFooter) =>
+const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle) =>
     newData.map(item => {
         const oldDataPoint = find(oldData, eachOldData => eachOldData.id === item.id);
         const foundOldRow = find(oldRows, eachOldRow => eachOldRow.key === item.id);
@@ -62,13 +64,13 @@ const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowH
         const letsReRenderThisRow = (!(oldDataPoint && isEqual(item, oldDataPoint)));
         const tableColumns = (!letsReRenderThisRow && oldRow) ?
             oldRow.props.children :
-            mapColumns(item, columns);
-        return createRow(item, tableColumns, rowClickHandler, rowHeader, rowFooter);
+            mapColumns(item, columns, useDefaultStyle);
+        return createRow(item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle);
     }, this);
 
 class GridBodyComponent extends React.Component {
     componentWillMount() {
-        const { data, columns, rowClickHandler, rowHeader, rowFooter } = this.props;
+        const { data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle } = this.props;
         const tableRows = renderGridMap(
             null,
             null,
@@ -76,14 +78,15 @@ class GridBodyComponent extends React.Component {
             columns,
             rowClickHandler,
             rowHeader,
-            rowFooter
+            rowFooter,
+            useDefaultStyle
         );
         this.setState({
             tableRows,
         });
     }
     componentWillReceiveProps(nextProps) {
-        const { data, columns, rowClickHandler, rowHeader, rowFooter } = nextProps;
+        const { data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle } = nextProps;
         if (!isEqual(this.props, nextProps)) {
             const tableRows = renderGridMap(
                 this.state.tableRows,
@@ -92,7 +95,8 @@ class GridBodyComponent extends React.Component {
                 columns,
                 rowClickHandler,
                 rowHeader,
-                rowFooter
+                rowFooter,
+                useDefaultStyle
             );
             this.setState({
                 tableRows,
@@ -114,6 +118,7 @@ GridBodyComponent.propTypes = {
     columns: PropTypes.array.isRequired,
     rowClickHandler: PropTypes.func,
     style: PropTypes.object,
+    useDefaultStyle: PropTypes.bool,
     rowHeader: PropTypes.shape({
         data: PropTypes.string.isRequired,
         component: PropTypes.func.isRequired,

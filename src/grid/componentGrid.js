@@ -10,6 +10,7 @@ const ComponentGridComponent = props => {
         headerClass,
         rowClickHandler,
         style,
+        useDefaultStyle,
         rowsContainerStyle,
         rowHeader,
         rowFooter
@@ -17,12 +18,13 @@ const ComponentGridComponent = props => {
 
     return (
       <div style={style}>
-        <GridHeader headerClass={headerClass} columns={columns} />
+        <GridHeader headerClass={headerClass} columns={columns} useDefaultStyle={useDefaultStyle} />
         <GridBody
           data={data}
           columns={columns}
           rowClickHandler={rowClickHandler}
           style={rowsContainerStyle}
+          useDefaultStyle={useDefaultStyle}
           rowHeader={rowHeader}
           rowFooter={rowFooter}
         />
@@ -30,12 +32,17 @@ const ComponentGridComponent = props => {
     );
 };
 
+ComponentGridComponent.defaultProps = {
+  useDefaultStyle: true
+}
+
 ComponentGridComponent.propTypes = {
     data: PropTypes.array.isRequired,
     columns: PropTypes.array.isRequired,
     rowClickHandler: PropTypes.func,
     headerClass: PropTypes.string,
     style: PropTypes.object,
+    useDefaultStyle: PropTypes.bool,
     rowsContainerStyle: PropTypes.object,
     rowHeader: PropTypes.shape({
         data: PropTypes.string.isRequired,

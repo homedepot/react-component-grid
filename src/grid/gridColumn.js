@@ -9,7 +9,7 @@ class GridColumnComponent extends React.Component {
         const flexSize = this.props.flexGrow || '1';
         const flexShrink = this.props.flexShrink || '0';
         const flexBasis = this.props.flexBasis || '0px';
-        const style = { flex: `${flexSize} ${flexShrink} ${flexBasis}` };
+        const style = this.props.useDefaultStyle ? { flex: `${flexSize} ${flexShrink} ${flexBasis}` } : {};
         return (
           <div style={{ ...this.props.style, ...style }} className={this.props.className}>
             {this.props.children}
@@ -24,7 +24,8 @@ GridColumnComponent.propTypes = {
     className: PropTypes.string,
     flexGrow: PropTypes.number,
     flexShrink: PropTypes.number,
-    flexBasis: PropTypes.number
+    flexBasis: PropTypes.number,
+    useDefaultStyle: PropTypes.bool
 };
 
 export default GridColumnComponent;
