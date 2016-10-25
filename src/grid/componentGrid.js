@@ -16,23 +16,25 @@ const ComponentGridComponent = props => {
         rowFooter
     } = props;
 
-    const setDefaultStyle = (typeof useDefaultStyle === 'undefined') ? true : useDefaultStyle;
-
     return (
       <div style={style}>
-        <GridHeader headerClass={headerClass} columns={columns} useDefaultStyle={setDefaultStyle} />
+        <GridHeader headerClass={headerClass} columns={columns} useDefaultStyle={useDefaultStyle} />
         <GridBody
           data={data}
           columns={columns}
           rowClickHandler={rowClickHandler}
           style={rowsContainerStyle}
-          useDefaultStyle={setDefaultStyle}
+          useDefaultStyle={useDefaultStyle}
           rowHeader={rowHeader}
           rowFooter={rowFooter}
         />
       </div>
     );
 };
+
+ComponentGridComponent.defaultProps = {
+  useDefaultStyle: true
+}
 
 ComponentGridComponent.propTypes = {
     data: PropTypes.array.isRequired,
