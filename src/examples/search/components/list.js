@@ -70,7 +70,6 @@ export default class List extends Component {
                 rowHeader={rowHeader}
                 rowFooter={rowFooter}
                 style={{ backgroundColor: '#EEE' }}
-                useDefaultStyle={true}
               />
             </div>
           </div>
