@@ -114,8 +114,14 @@ GridBodyComponent.propTypes = {
     columns: PropTypes.array.isRequired,
     rowClickHandler: PropTypes.func,
     style: PropTypes.object,
-    rowHeader: PropTypes.object,
-    rowFooter: PropTypes.object,
+    rowHeader: PropTypes.shape({
+        data: PropTypes.string.isRequired,
+        component: PropTypes.func.isRequired,
+    }),
+    rowFooter: PropTypes.shape({
+        data: PropTypes.string.isRequired,
+        component: PropTypes.func.isRequired,
+    }),
 };
 
 export default GridBodyComponent;

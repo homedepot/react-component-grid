@@ -37,8 +37,14 @@ ComponentGridComponent.propTypes = {
     headerClass: PropTypes.string,
     style: PropTypes.object,
     rowsContainerStyle: PropTypes.object,
-    rowHeader: PropTypes.object,
-    rowFooter: PropTypes.object,
+    rowHeader: PropTypes.shape({
+        data: PropTypes.string.isRequired,
+        component: PropTypes.func.isRequired,
+    }),
+    rowFooter: PropTypes.shape({
+        data: PropTypes.string.isRequired,
+        component: PropTypes.func.isRequired,
+    }),
 };
 
 export default ComponentGridComponent;
