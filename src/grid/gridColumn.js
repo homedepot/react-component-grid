@@ -24,7 +24,7 @@ GridColumnComponent.propTypes = {
     className: PropTypes.string,
     flexGrow: PropTypes.number,
     flexShrink: PropTypes.number,
-    flexBasis: PropTypes.number,
+    flexBasis: PropTypes.string,
     useDefaultStyle: PropTypes.bool
 };
 

@@ -33,8 +33,8 @@ const ComponentGridComponent = props => {
 };
 
 ComponentGridComponent.defaultProps = {
-  useDefaultStyle: true
-}
+    useDefaultStyle: true
+};
 
 ComponentGridComponent.propTypes = {
     data: PropTypes.array.isRequired,
