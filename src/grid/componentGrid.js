@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import GridHeader from './gridHeader';
 import GridBody from './gridBody';
 
-const ComponentGridComponent = props => {
+const ComponentGridComponent = (props) => {
     const {
         data,
         columns,

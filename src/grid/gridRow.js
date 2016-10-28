@@ -4,12 +4,12 @@ import isEqual from 'lodash/isEqual';
 export default class GridRowComponent extends React.Component {
     constructor(props) {
         super(props);
-        this._onClick = this._onClick.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
     shouldComponentUpdate(nextProps) {
         return !isEqual(this.props, nextProps);
     }
-    _onClick() {
+    onClick() {
         const { rowClickHandler } = this.props;
         if (rowClickHandler) {
             rowClickHandler(this.props.id);
@@ -19,7 +19,7 @@ export default class GridRowComponent extends React.Component {
         const style = this.props.useDefaultStyle ? { display: 'flex' } : {};
 
         return (
-          <div className={this.props.rowClass} style={style} onClick={this._onClick}>
+          <div className={this.props.rowClass} style={style} onClick={this.onClick}>
             {this.props.children}
           </div>
         );

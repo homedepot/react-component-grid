@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import _ from 'lodash';
 
-const SourceListComponent = sources => {
+const SourceListComponent = (sources) => {
     const sourceListItems = _.map(sources, (source, i) =>
         (<li key={i}>{source.name}</li>)
     );
@@ -13,7 +13,6 @@ const SourceListComponent = sources => {
 };
 
 SourceListComponent.propTypes = {
-    sources: PropTypes.func.isRequired
 };
 
 export default SourceListComponent;

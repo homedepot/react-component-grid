@@ -16,7 +16,7 @@ const renderColumnHeaders = (columns, useDefaultStyle) => (
     })
 );
 
-const GridHeaderComponent = props => {
+const GridHeaderComponent = (props) => {
     const { columns, headerClass, useDefaultStyle } = props;
     const headerColumns = renderColumnHeaders(columns, useDefaultStyle);
     const style = useDefaultStyle ? { display: 'flex' } : {};

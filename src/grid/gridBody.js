@@ -23,7 +23,7 @@ const mapColumns = (item, columns, useDefaultStyle) =>
           </GridColumn>);
     }, this);
 
-const isValidRowHeaderOrFooter = (obj) =>
+const isValidRowHeaderOrFooter = obj =>
     typeof obj === 'object' &&
     typeof obj.component !== 'undefined' &&
     typeof obj.data !== 'undefined';
@@ -57,7 +57,7 @@ const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, us
 };
 
 const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle) =>
-    newData.map(item => {
+    newData.map((item) => {
         const oldDataPoint = find(oldData, eachOldData => eachOldData.id === item.id);
         const foundOldRow = find(oldRows, eachOldRow => eachOldRow.key === item.id);
         const oldRow = foundOldRow ? find(foundOldRow.children, child => child.key === item.id) : null;
