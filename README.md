@@ -57,7 +57,42 @@ const reactComponentToRenderInThisColumn = props => (
 )
 ```
 
-Key Contributors:
+## Optional Properties
+
+By default, the React Flexbox Component Grid relies on inline styles to build its grid. This can make changing the styling with CSS classes tricky. If you'd like to bypass the inline styling and build your own, you can set the `useDefaultStyle` property to false.
+```
+<ReactFlexboxComponentGrid
+    data={listsData}
+    columns={columns}
+    useDefaultStyle={false}
+/>
+```
+It's relatively simple to create a grid using HTML and CSS. You can even use a mix of flexible width and fixed width columns:
+```
+<div class="row">
+    <div class="col fixed">This is a fixed width column.</div>
+    <div class="col flex-col">This is a flexible width column.</div>
+</div>
+```
+
+```
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.col { flex: 1 1 8%; }
+
+.flex-col { flex-basis: 8.3333%; }
+
+.fixed { flex: 0 0 40px; }
+
+```
+
+You can also check out a few sample implementations in the [examples section](https://github.com/homedepot/react-component-grid/tree/master/src/examples).
+
+# Key Contributors:
 
 * [@jonnyohjonnyo](https://github.com/jonnyohjonnyo)
 * [@thd-mesa](https://github.com/thd-mesa)
