@@ -3,15 +3,13 @@ import _ from 'lodash';
 
 import SourceList from './searchTableCells/sourceList';
 import ProductDescription from './searchTableCells/productDescription';
-import RowFooter from './rowFooter';
-import RowHeader from './rowHeader';
-
 import ComponentGrid from '../../../grid/componentGrid';
 
-export default class List extends Component {
+export default class ListTwo extends Component {
     _onRowClick(id) {
         console.log(id);
     }
+
     render() {
         const { rows } = this.props;
         const data = _.map(rows, (row, i) => (
@@ -20,64 +18,54 @@ export default class List extends Component {
                 id: row.id,
                 sources: row.sources,
                 name: row.name,
-                additionalDescription: row.additionalDescription,
-                rowClass: row.rowClass,
-                headerData: 'I am a header',
-                footerData: 'I am a footer',
+                rowClass: 'flex-row',
+                additionalDescription: row.additionalDescription
             }
         ));
+
         const columns = [
             {
                 data: 'name',
                 component: ProductDescription,
-                header: '',
-                flexGrow: 1
+                header: 'Fixed width Column',
+                className: 'col fixed-width-col'
             },
             {
                 data: 'additionalDescription',
                 component: ProductDescription,
-                header: 'Descriptions',
-                flexGrow: 2
+                header: 'Flexible Width Column',
+                className: 'col flex-width-col'
             },
             {
                 data: 'sources',
                 component: SourceList,
-                header: 'Sources',
+                header: 'Flexible Width Column',
+                className: 'col flex-width-col'
             }
         ];
 
-        const rowHeader = {
-            data: 'headerData',
-            component: RowHeader
-        };
-
-        const rowFooter = {
-            data: 'footerData',
-            component: RowFooter
-        };
-
         return (
           <div className="panel panel-default">
+            
             <div className="panel-heading">
-              <h1>Example - Search Results List One</h1>
+              <h1>Example - Search Results List Two</h1>
             </div>
-            <div className="panel-body">
+
+            <div className="panel-body">            
               <ComponentGrid
                 data={data}
                 columns={columns}
-                headerClass={'text-primary'}
                 rowClickHandler={this._onRowClick}
-                rowHeader={rowHeader}
-                rowFooter={rowFooter}
-                style={{ backgroundColor: '#EEE' }}
+                headerClass={'text-primary'}
                 useDefaultStyle={true}
               />
             </div>
+            
           </div>
         );
     }
 }
 
-List.propTypes = {
+ListTwo.propTypes = {
     rows: React.PropTypes.array.isRequired
 };

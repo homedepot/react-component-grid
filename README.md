@@ -22,7 +22,7 @@ Grid - Or datagrid. Or matrix. In this case, a framework of rectangular cells
 $ npm i -S react-flexbox-component-grid
 ```
 
-# Getting Started
+## Getting Started
 
 3 props are expected and required to use the component grid:
 
@@ -67,16 +67,17 @@ By default, the React Flexbox Component Grid relies on inline styles to build it
     useDefaultStyle={false}
 />
 ```
-It's relatively simple to create a grid using HTML and CSS. You can even use a mix of flexible width and fixed width columns:
+Creating a CSS class-based grid is relatively simple -- you can even use a mix of flexible width and fixed width columns. The HTML rendered for a single row in of the React Flexbox Component Grid will look something like this:
 ```
-<div class="row">
-    <div class="col fixed">This is a fixed width column.</div>
-    <div class="col flex-col">This is a flexible width column.</div>
+<div class="flex-row">
+    <div class="col fixed-width-col">This is a fixed width column.</div>
+    <div class="col flex-width-col">This is a flexible width column.</div>
 </div>
 ```
+In our CSS, we create a parent row class. Each column inside the row will be given a base `col` style, which will be modified using either the `fixed-width-col` class (in this example, 100px wide) or the `flex-width-col` class. You can create as many fixed width classes as you like, or tweak the flex-basis property on the flexible width column to alter how much space they should take up.
 
 ```
-.row {
+.flex-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -84,13 +85,14 @@ It's relatively simple to create a grid using HTML and CSS. You can even use a m
 
 .col { flex: 1 1 8%; }
 
-.flex-col { flex-basis: 8.3333%; }
+.fixed-width-col { flex: 0 0 100px; }
 
-.fixed { flex: 0 0 40px; }
+.flex-width-col { flex-basis: 8.3333%; }
 
 ```
 
-You can also check out a few sample implementations in the [examples section](https://github.com/homedepot/react-component-grid/tree/master/src/examples).
+## Sample Implementations
+You can also check out a few sample implementations in the [examples section](https://github.com/homedepot/react-component-grid/tree/master/src/examples). To run the project locally, you'll need to clone the repo and serve the files using the `node server.js` command.
 
 # Key Contributors:
 
