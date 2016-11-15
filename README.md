@@ -26,7 +26,7 @@ $ npm i -S react-flexbox-component-grid
 
 The grid requires 3 properties:
 
-*Data*: An array containing the row-wise data you wish to display; each data item MUST contain a unique id property (either a string or a number)
+**Data**: An array containing the row-wise data you wish to display; each data item MUST contain a unique id property (either a string or a number)
 ```
 const data = [
         {
@@ -41,7 +41,7 @@ const data = [
         },
     ];
 ```
-*Columns*: An array representation of the columns you wish to display
+**Columns**: An array representation of the columns you wish to display
 ```
 const columns = [
         {
@@ -50,7 +50,7 @@ const columns = [
         }
     ];
 ```
-*Component*: At least one component to render as a grid cell
+**Components**: At least one component to render as a grid cell
 ```
 const reactComponentToRenderInThisColumn = props => (
   <div>{props.quantity}</div>
