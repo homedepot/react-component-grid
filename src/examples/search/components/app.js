@@ -3,6 +3,7 @@ import _ from 'lodash';
 import { v4 } from 'node-uuid';
 
 import List from './list';
+import ListTwo from './list2';
 
 export default class App extends Component {
     constructor(props) {
@@ -51,6 +52,9 @@ export default class App extends Component {
           <div>
             <List rows={this.state.data} />
             <button className="btn btn-primary" onClick={this.addTenRows}>More rows, please</button>
+
+            <ListTwo rows={this.state.data} />
+
           </div>
         );
     }

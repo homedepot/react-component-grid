@@ -22,11 +22,11 @@ Grid - Or datagrid. Or matrix. In this case, a framework of rectangular cells
 $ npm i -S react-flexbox-component-grid
 ```
 
-# Getting Started
+## Getting Started
 
-3 props are expected and required to use the component grid:
+The grid requires 3 properties:
 
-data: An array containing the row-wise data you wish to display. Each data item MUST contain a unique id property (either string or number).
+**Data**: An array containing the row-wise data you wish to display; each data item MUST contain a unique id property (either a string or a number)
 ```
 const data = [
         {
@@ -41,7 +41,7 @@ const data = [
         },
     ];
 ```
-columns: An array representation of the columns you wish to display
+**Columns**: An array representation of the columns you wish to display
 ```
 const columns = [
         {
@@ -50,14 +50,51 @@ const columns = [
         }
     ];
 ```
-component: at least one component to render as a grid cell
+**Components**: At least one component to render as a grid cell
 ```
 const reactComponentToRenderInThisColumn = props => (
   <div>{props.quantity}</div>
 )
 ```
 
-Key Contributors:
+## Optional Properties
+
+By default, the React Flexbox Component Grid relies on inline styles to build its grid. This can make changing the styling with CSS classes tricky. If you'd like to bypass the inline styling and build your own, you can set the `useDefaultStyle` property to false.
+```
+<ReactFlexboxComponentGrid
+    data={listsData}
+    columns={columns}
+    useDefaultStyle={false}
+/>
+```
+Creating a CSS class-based grid is relatively simple -- you can even use a mix of flexible width and fixed width columns. The HTML rendered for a single row in of the React Flexbox Component Grid will look something like this:
+```
+<div class="flex-row">
+    <div class="col fixed-width-col">This is a fixed width column.</div>
+    <div class="col flex-width-col">This is a flexible width column.</div>
+</div>
+```
+In our CSS, we create a parent row class. Each column inside the row will be given a base `col` style, which will be modified using either the `fixed-width-col` class (in this example, 100px wide) or the `flex-width-col` class. You can create as many fixed width classes as you like, or tweak the flex-basis property on the flexible width column to alter how much space they should take up.
+
+```
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.col { flex: 1 1 8%; }
+
+.fixed-width-col { flex: 0 0 100px; }
+
+.flex-width-col { flex-basis: 8.3333%; }
+
+```
+
+## Sample Implementations
+You can also check out a few sample implementations in the [examples section](https://github.com/homedepot/react-component-grid/tree/master/src/examples). To run the project locally, you'll need to clone the repo and serve the files using the `node server.js` command.
+
+# Key Contributors:
 
 * [@jonnyohjonnyo](https://github.com/jonnyohjonnyo)
 * [@thd-mesa](https://github.com/thd-mesa)
