@@ -91,6 +91,8 @@ In our CSS, we create a parent row class. Each column inside the row will be giv
 
 ```
 
+**Note:** Your project can also contain a mix of inline and class-based styling. When using the default (inline styles) implementation of React Flexbox Component Grid, be aware that inline styles have higher specificity than class-based styles and thus override any class-based styles. When using class-based styling, be careful to avoid classname conflicts.
+
 ## Sample Implementations
 You can also check out a few sample implementations in the [examples section](https://github.com/homedepot/react-component-grid/tree/master/src/examples). To run the project locally, you'll need to clone the repo and serve the files using the `node server.js` command.
 
