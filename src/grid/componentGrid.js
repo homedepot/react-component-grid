@@ -13,7 +13,8 @@ const ComponentGridComponent = (props) => {
         useDefaultStyle,
         rowsContainerStyle,
         rowHeader,
-        rowFooter
+        rowFooter,
+        rowWrapperComponent,
     } = props;
 
     return (
@@ -27,6 +28,7 @@ const ComponentGridComponent = (props) => {
           useDefaultStyle={useDefaultStyle}
           rowHeader={rowHeader}
           rowFooter={rowFooter}
+          rowWrapperComponent={rowWrapperComponent}
         />
       </div>
     );
@@ -52,6 +54,7 @@ ComponentGridComponent.propTypes = {
         data: PropTypes.string.isRequired,
         component: PropTypes.func.isRequired,
     }),
+    rowWrapperComponent: PropTypes.func,
 };
 
 export default ComponentGridComponent;
