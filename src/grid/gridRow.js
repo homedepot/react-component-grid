@@ -16,12 +16,33 @@ export default class GridRowComponent extends React.Component {
         }
     }
     render() {
-        const style = this.props.useDefaultStyle ? { display: 'flex' } : {};
+        const {
+            useDefaultStyle,
+            rowWrapperComponent,
+            rowClass,
+            onClick,
+            item,
+            children,
+        } = this.props;
+
+        const style = useDefaultStyle ? { display: 'flex' } : {};
+        const wrapperProps = {
+            className: rowClass,
+            style: style,
+            onClick: this.onClick
+        };
+
+        // only set item property if this is a react component
+        if (rowWrapperComponent) {
+            wrapperProps.item = item;
+        }
+
+        const WrapperComponent = rowWrapperComponent || 'div';
 
         return (
-          <div className={this.props.rowClass} style={style} onClick={this.onClick}>
-            {this.props.children}
-          </div>
+          <WrapperComponent {...wrapperProps}>
+            {children}
+          </WrapperComponent>
         );
     }
 }
@@ -34,5 +55,7 @@ GridRowComponent.propTypes = {
     rowClickHandler: PropTypes.func,
     rowClass: PropTypes.string,
     children: PropTypes.array,
-    useDefaultStyle: PropTypes.bool
+    useDefaultStyle: PropTypes.bool,
+    rowWrapperComponent: PropTypes.func,
+    item: PropTypes.object,
 };
