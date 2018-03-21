@@ -28,7 +28,7 @@ export default class GridRowComponent extends React.Component {
         const style = useDefaultStyle ? { display: 'flex' } : {};
         const wrapperProps = {
             className: rowClass,
-            style: style,
+            style,
             onClick: this.onClick
         };
 
