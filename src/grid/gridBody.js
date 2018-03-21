@@ -58,7 +58,8 @@ const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, us
     );
 };
 
-const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent) =>
+const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle,
+                       rowWrapperComponent) =>
     newData.map((item) => {
         const oldDataPoint = find(oldData, eachOldData => eachOldData.id === item.id);
         const foundOldRow = find(oldRows, eachOldRow => eachOldRow.key === item.id);
@@ -67,12 +68,15 @@ const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowH
         const tableColumns = (!letsReRenderThisRow && oldRow) ?
             oldRow.props.children :
             mapColumns(item, columns, useDefaultStyle);
-        return createRow(item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent);
+        return createRow(item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle,
+            rowWrapperComponent);
     }, this);
 
 class GridBodyComponent extends React.Component {
     componentWillMount() {
-        const { data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent } = this.props;
+        const {
+            data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent
+        } = this.props;
         const tableRows = renderGridMap(
             null,
             null,
@@ -89,7 +93,9 @@ class GridBodyComponent extends React.Component {
         });
     }
     componentWillReceiveProps(nextProps) {
-        const { data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent } = nextProps;
+        const {
+            data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent
+        } = nextProps;
         if (!isEqual(this.props, nextProps)) {
             const tableRows = renderGridMap(
                 this.state.tableRows,
