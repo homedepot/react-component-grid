@@ -20,7 +20,6 @@ export default class GridRowComponent extends React.Component {
             useDefaultStyle,
             rowWrapperComponent,
             rowClass,
-            onClick,
             item,
             children,
         } = this.props;
