@@ -56,7 +56,7 @@ export default class ListTwo extends Component {
                 columns={columns}
                 rowClickHandler={this.onRowClick}
                 headerClass={'text-primary'}
-                useDefaultStyle={true}
+                useDefaultStyle
               />
             </div>
 
