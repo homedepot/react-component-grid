@@ -1,13 +1,13 @@
 {
   "name": "react-flexbox-component-grid",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "node ./tools/build-lib.js",
     "lint": "eslint \"./src/**/*.{js,jsx}\"",
-    "test-watch": "mocha ./_tests_/index.js --require babel-core/register --reporter nyan --watch",
-    "test": "mocha ./_tests_/index.js --require babel-core/register --reporter nyan"
+    "test-watch": "mocha ./_tests_/**/*.js --require babel-core/register --reporter nyan --watch",
+    "test": "mocha ./_tests_/**/*.js --require babel-core/register --reporter nyan"
   },
   "repository": {
     "type": "git",
@@ -46,8 +46,9 @@
   },
   "dependencies": {
     "lodash": "^4.11.1",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "uuid": "^3.0.0"
   }
 }
