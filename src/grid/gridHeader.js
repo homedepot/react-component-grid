@@ -30,7 +30,7 @@ const GridHeaderComponent = (props) => {
 
 GridHeaderComponent.propTypes = {
     columns: PropTypes.array.isRequired,
-    headerClass: PropTypes.string.isRequired,
+    headerClass: PropTypes.string,
     useDefaultStyle: PropTypes.bool
 };
 

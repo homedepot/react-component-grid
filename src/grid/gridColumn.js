@@ -20,7 +20,7 @@ class GridColumnComponent extends React.Component {
 }
 
 GridColumnComponent.propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.element,
     style: PropTypes.object,
     className: PropTypes.string,
     flexGrow: PropTypes.number,
