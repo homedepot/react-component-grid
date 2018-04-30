@@ -15,7 +15,7 @@ const QuantityComponent = (props) => {
 				{ baseUnitDisplay }
 			</div>
 		</div>
-	);
+    );
 };
 
 QuantityComponent.propTypes = {

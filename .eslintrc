@@ -28,7 +28,8 @@
         "react/jsx-indent": 0,
         "react/forbid-prop-types": 0,
         "react/jsx-filename-extension": 0,
-        "react/no-unused-prop-types": 0
+        "react/no-unused-prop-types": 0,
+        "react/require-extension": 0
     },
     "plugins": [
         "react"

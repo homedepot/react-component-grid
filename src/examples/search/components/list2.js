@@ -6,8 +6,7 @@ import ProductDescription from './searchTableCells/productDescription';
 import ComponentGrid from '../../../grid/componentGrid';
 
 export default class ListTwo extends Component {
-    _onRowClick(id) {
-        console.log(id);
+    onRowClick() {
     }
 
     render() {
@@ -46,21 +45,21 @@ export default class ListTwo extends Component {
 
         return (
           <div className="panel panel-default">
-            
+
             <div className="panel-heading">
               <h1>Example - Search Results List Two</h1>
             </div>
 
-            <div className="panel-body">            
+            <div className="panel-body">
               <ComponentGrid
                 data={data}
                 columns={columns}
-                rowClickHandler={this._onRowClick}
+                rowClickHandler={this.onRowClick}
                 headerClass={'text-primary'}
-                useDefaultStyle={true}
+                useDefaultStyle
               />
             </div>
-            
+
           </div>
         );
     }
