@@ -13,6 +13,7 @@ branches:
     - master
 
 install:
+  - echo $NPM_TOKEN
   # install dependencies
   - npm install
 
