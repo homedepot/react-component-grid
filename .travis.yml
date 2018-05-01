@@ -14,6 +14,7 @@ branches:
 
 install:
   - echo $NPM_TOKEN
+  - env
   # install dependencies
   - npm install
 
