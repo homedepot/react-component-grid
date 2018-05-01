@@ -9,8 +9,7 @@ import RowHeader from './rowHeader';
 import ComponentGrid from '../../../grid/componentGrid';
 
 export default class List extends Component {
-    onRowClick(id) {
-        console.log(id);
+    onRowClick() {
     }
     render() {
         const { rows } = this.props;

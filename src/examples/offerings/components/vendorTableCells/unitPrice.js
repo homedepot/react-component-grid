@@ -18,7 +18,7 @@ const UnitPriceComponent = (props) => {
 				{ bulkPricing }
 			</div>
 		</div>
-	);
+    );
 };
 
 

@@ -47,8 +47,8 @@
   "dependencies": {
     "lodash": "^4.11.1",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "16.2",
+    "react-dom": "16.2",
     "uuid": "^3.0.0"
   }
 }
