@@ -21,3 +21,11 @@ before_script:
 
 script: 
   - npm run test
+
+before_deploy:
+  - npm run build
+
+deploy:
+  provider: script
+  script: npm publish
+  skip_cleanup: true

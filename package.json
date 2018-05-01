@@ -1,6 +1,6 @@
 {
   "name": "react-flexbox-component-grid",
-  "version": "1.0.0",
+  "version": "1.0.1-pre",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -47,8 +47,8 @@
   "dependencies": {
     "lodash": "^4.11.1",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "16.2",
+    "react-dom": "16.2",
     "uuid": "^3.0.0"
   }
 }

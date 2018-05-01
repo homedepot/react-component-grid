@@ -1,0 +1,10 @@
+.git/
+src/
+tests/
+tools/
+.babelrc
+.eslintrc
+.travis.yml
+*.tgz
+package*/
+.idea/
