@@ -40,7 +40,7 @@ const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, us
     }
 
     return (
-      <div key={item.id}>
+      <React.Fragment key={item.id}>
         {rowHeaderComponent}
         <GridRow
           rowClickHandler={rowClickHandler}
@@ -52,7 +52,7 @@ const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, us
           {tableColumns}
         </GridRow>
         {rowFooterComponent}
-      </div>
+      </React.Fragment>
     );
 };
 
