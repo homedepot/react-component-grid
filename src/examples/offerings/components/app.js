@@ -22,7 +22,6 @@ export default class App extends Component {
         this.setState({
             selectedId: id
         });
-        console.log(id);
     }
     render() {
         const generateRowClass = (id) => {
@@ -31,7 +30,7 @@ export default class App extends Component {
             }
 
             return 'text-muted';
-        }
+        };
         const row1Id = 123213;
         const row2Id = 245454;
         const data = [
@@ -40,7 +39,8 @@ export default class App extends Component {
                 id: row1Id,
                 source: {
                     name: 'Cascadia Lumber',
-                    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_Cascadia.svg/250px-Flag_of_Cascadia.svg.png'
+                    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/' +
+                        'Flag_of_Cascadia.svg/250px-Flag_of_Cascadia.svg.png'
                 },
                 pricing: { unitPrice: 36.28, baseUnit: 'board', bulkPricing: true },
                 leadTime: 3,
@@ -106,25 +106,21 @@ export default class App extends Component {
         ];
 
         return (
-            < div;
-        className = "panel panel-default" >
-            < div;
-        className = "panel-heading" >
-            < h1 > Example - Vendor;
-        Options < / h1 >
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h1> Example - Vendor Options </h1>
                 </div>
-        < div;
-        className = "panel-body" >
-            < ComponentGrid;
-        data = {data};
-        columns = {columns};
-        headerClass = {'text-primary'};
-        rowClickHandler = {this.onRowClick
-    } />
+                <div className="panel-body">
+                    <ComponentGrid
+                      data={data}
+                      columns={columns}
+                      headerClass={'text-primary'}
+                      rowClickHandler={this.onRowClick}
+                    />
                 </div>
-        < / div >;
-    )
-    };
+            </div>
+        );
+    }
 }
 
 App.propTypes = {

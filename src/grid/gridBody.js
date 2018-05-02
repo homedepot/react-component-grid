@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import find from 'lodash/find';
 import isEqual from 'lodash/isEqual';
 
@@ -23,12 +24,12 @@ const mapColumns = (item, columns, useDefaultStyle) =>
           </GridColumn>);
     }, this);
 
-const isValidRowHeaderOrFooter = (obj) =>
+const isValidRowHeaderOrFooter = obj =>
     typeof obj === 'object' &&
     typeof obj.component !== 'undefined' &&
     typeof obj.data !== 'undefined';
 
-const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle) => {
+const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent) => {
     let rowHeaderComponent;
     if (isValidRowHeaderOrFooter(rowHeader)) {
         rowHeaderComponent = rowHeader.component(item[rowHeader.data]);
@@ -48,6 +49,8 @@ const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, us
           rowClass={item.rowClass}
           useDefaultStyle={useDefaultStyle}
           key={item.id}
+          rowWrapperComponent={rowWrapperComponent}
+          item={item}
         >
           {tableColumns}
         </GridRow>
@@ -56,8 +59,9 @@ const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, us
     );
 };
 
-const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle) =>
-    newData.map(item => {
+const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle,
+                       rowWrapperComponent) =>
+    newData.map((item) => {
         const oldDataPoint = find(oldData, eachOldData => eachOldData.id === item.id);
         const foundOldRow = find(oldRows, eachOldRow => eachOldRow.key === item.id);
         const oldRow = foundOldRow ? find(foundOldRow.children, child => child.key === item.id) : null;
@@ -65,12 +69,15 @@ const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowH
         const tableColumns = (!letsReRenderThisRow && oldRow) ?
             oldRow.props.children :
             mapColumns(item, columns, useDefaultStyle);
-        return createRow(item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle);
+        return createRow(item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle,
+            rowWrapperComponent);
     }, this);
 
 class GridBodyComponent extends React.Component {
     componentWillMount() {
-        const { data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle } = this.props;
+        const {
+            data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent
+        } = this.props;
         const tableRows = renderGridMap(
             null,
             null,
@@ -79,14 +86,17 @@ class GridBodyComponent extends React.Component {
             rowClickHandler,
             rowHeader,
             rowFooter,
-            useDefaultStyle
+            useDefaultStyle,
+            rowWrapperComponent
         );
         this.setState({
             tableRows,
         });
     }
     componentWillReceiveProps(nextProps) {
-        const { data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle } = nextProps;
+        const {
+            data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent
+        } = nextProps;
         if (!isEqual(this.props, nextProps)) {
             const tableRows = renderGridMap(
                 this.state.tableRows,
@@ -96,7 +106,8 @@ class GridBodyComponent extends React.Component {
                 rowClickHandler,
                 rowHeader,
                 rowFooter,
-                useDefaultStyle
+                useDefaultStyle,
+                rowWrapperComponent
             );
             this.setState({
                 tableRows,
@@ -127,6 +138,7 @@ GridBodyComponent.propTypes = {
         data: PropTypes.string.isRequired,
         component: PropTypes.func.isRequired,
     }),
+    rowWrapperComponent: PropTypes.func,
 };
 
 export default GridBodyComponent;

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/map';
 
 const renderColumnHeaders = (columns, useDefaultStyle) => (
@@ -16,7 +17,7 @@ const renderColumnHeaders = (columns, useDefaultStyle) => (
     })
 );
 
-const GridHeaderComponent = props => {
+const GridHeaderComponent = (props) => {
     const { columns, headerClass, useDefaultStyle } = props;
     const headerColumns = renderColumnHeaders(columns, useDefaultStyle);
     const style = useDefaultStyle ? { display: 'flex' } : {};
@@ -29,7 +30,7 @@ const GridHeaderComponent = props => {
 
 GridHeaderComponent.propTypes = {
     columns: PropTypes.array.isRequired,
-    headerClass: PropTypes.string.isRequired,
+    headerClass: PropTypes.string,
     useDefaultStyle: PropTypes.bool
 };
 

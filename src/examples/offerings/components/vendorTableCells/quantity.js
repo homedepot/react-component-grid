@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 
-const ItemComponent = props => (
+const itemComponent = props => (
 	(props.quantity === 1) ? (<div>{props.baseUnit}</div>) : (<div>{props.baseUnit}s</div>)
 );
 
-const QuantityComponent = props => {
-    const baseUnitDisplay = ItemComponent(props);
+const QuantityComponent = (props) => {
+    const baseUnitDisplay = itemComponent(props);
     return (
 		<div>
 			<div>
@@ -15,17 +15,16 @@ const QuantityComponent = props => {
 				{ baseUnitDisplay }
 			</div>
 		</div>
-	);
+    );
 };
 
 QuantityComponent.propTypes = {
     quantity: PropTypes.string.isRequired,
-    baseUnit: PropTypes.string.isRequired
 };
 
-ItemComponent.propTypes = {
+itemComponent.propTypes = {
     quantity: PropTypes.string.isRequired,
-    baseUnit: PropTypes.string.isRequired
+    baseUnit: PropTypes.string.isRequired,
 };
 
 export default QuantityComponent;

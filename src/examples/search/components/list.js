@@ -9,8 +9,7 @@ import RowHeader from './rowHeader';
 import ComponentGrid from '../../../grid/componentGrid';
 
 export default class List extends Component {
-    _onRowClick(id) {
-        console.log(id);
+    onRowClick() {
     }
     render() {
         const { rows } = this.props;
@@ -66,11 +65,10 @@ export default class List extends Component {
                 data={data}
                 columns={columns}
                 headerClass={'text-primary'}
-                rowClickHandler={this._onRowClick}
+                rowClickHandler={this.onRowClick}
                 rowHeader={rowHeader}
                 rowFooter={rowFooter}
                 style={{ backgroundColor: '#EEE' }}
-                useDefaultStyle={true}
               />
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const FeesComponent = props => {
+const FeesComponent = (props) => {
     const feesComponent = (props) ?
     (
 		<div>
@@ -8,11 +8,11 @@ const FeesComponent = props => {
 				{ props.explanation }
 			</div>
 			<div>
-				<i className="fa fa-question"></i> Explain
+				<i className="fa fa-question" /> Explain
 			</div>
 		</div>
 	) :
-	(<div></div>);
+	(<div />);
     return feesComponent;
 };
 

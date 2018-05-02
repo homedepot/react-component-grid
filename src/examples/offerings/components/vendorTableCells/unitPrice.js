@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 
-const BulkPricingComponent = bulkPricing => (
+const bulkPricingComponent = bulkPricing => (
 	bulkPricing ? (<div>BULK PRICING</div>) : null
 );
 
-const UnitPriceComponent = props => {
-    const bulkPricing = BulkPricingComponent(props.bulkPricing);
+const UnitPriceComponent = (props) => {
+    const bulkPricing = bulkPricingComponent(props.bulkPricing);
     return (
 		<div>
 			<div>
@@ -18,7 +18,7 @@ const UnitPriceComponent = props => {
 				{ bulkPricing }
 			</div>
 		</div>
-	);
+    );
 };
 
 

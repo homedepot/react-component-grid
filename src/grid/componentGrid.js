@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import GridHeader from './gridHeader';
 import GridBody from './gridBody';
 
-const ComponentGridComponent = props => {
+const ComponentGridComponent = (props) => {
     const {
         data,
         columns,
@@ -13,7 +14,8 @@ const ComponentGridComponent = props => {
         useDefaultStyle,
         rowsContainerStyle,
         rowHeader,
-        rowFooter
+        rowFooter,
+        rowWrapperComponent,
     } = props;
 
     return (
@@ -27,14 +29,15 @@ const ComponentGridComponent = props => {
           useDefaultStyle={useDefaultStyle}
           rowHeader={rowHeader}
           rowFooter={rowFooter}
+          rowWrapperComponent={rowWrapperComponent}
         />
       </div>
     );
 };
 
 ComponentGridComponent.defaultProps = {
-  useDefaultStyle: true
-}
+    useDefaultStyle: true
+};
 
 ComponentGridComponent.propTypes = {
     data: PropTypes.array.isRequired,
@@ -52,6 +55,7 @@ ComponentGridComponent.propTypes = {
         data: PropTypes.string.isRequired,
         component: PropTypes.func.isRequired,
     }),
+    rowWrapperComponent: PropTypes.func,
 };
 
 export default ComponentGridComponent;

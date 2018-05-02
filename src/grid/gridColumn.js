@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import isEqual from 'lodash/isEqual';
 
 class GridColumnComponent extends React.Component {
@@ -19,12 +20,12 @@ class GridColumnComponent extends React.Component {
 }
 
 GridColumnComponent.propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.element,
     style: PropTypes.object,
     className: PropTypes.string,
     flexGrow: PropTypes.number,
     flexShrink: PropTypes.number,
-    flexBasis: PropTypes.number,
+    flexBasis: PropTypes.string,
     useDefaultStyle: PropTypes.bool
 };
 

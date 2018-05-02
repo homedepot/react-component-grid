@@ -1,27 +1,48 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import isEqual from 'lodash/isEqual';
 
 export default class GridRowComponent extends React.Component {
     constructor(props) {
         super(props);
-        this._onClick = this._onClick.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
     shouldComponentUpdate(nextProps) {
         return !isEqual(this.props, nextProps);
     }
-    _onClick() {
+    onClick() {
         const { rowClickHandler } = this.props;
         if (rowClickHandler) {
             rowClickHandler(this.props.id);
         }
     }
     render() {
-        const style = this.props.useDefaultStyle ? { display: 'flex' } : {};
+        const {
+            useDefaultStyle,
+            rowWrapperComponent,
+            rowClass,
+            item,
+            children,
+        } = this.props;
+
+        const style = useDefaultStyle ? { display: 'flex' } : {};
+        const wrapperProps = {
+            className: rowClass,
+            style,
+            onClick: this.onClick
+        };
+
+        // only set item property if this is a react component
+        if (rowWrapperComponent) {
+            wrapperProps.item = item;
+        }
+
+        const WrapperComponent = rowWrapperComponent || 'div';
 
         return (
-          <div className={this.props.rowClass} style={style} onClick={this._onClick}>
-            {this.props.children}
-          </div>
+          <WrapperComponent {...wrapperProps}>
+            {children}
+          </WrapperComponent>
         );
     }
 }
@@ -34,5 +55,7 @@ GridRowComponent.propTypes = {
     rowClickHandler: PropTypes.func,
     rowClass: PropTypes.string,
     children: PropTypes.array,
-    useDefaultStyle: PropTypes.bool
+    useDefaultStyle: PropTypes.bool,
+    rowWrapperComponent: PropTypes.func,
+    item: PropTypes.object,
 };
