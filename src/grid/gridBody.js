@@ -59,16 +59,10 @@ const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, us
     );
 };
 
-const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle,
+const renderGridMap = (newData, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle,
                        rowWrapperComponent) =>
     newData.map((item) => {
-        const oldDataPoint = find(oldData, eachOldData => eachOldData.id === item.id);
-        const foundOldRow = find(oldRows, eachOldRow => eachOldRow.key === item.id);
-        const oldRow = foundOldRow ? find(foundOldRow.children, child => child.key === item.id) : null;
-        const letsReRenderThisRow = (!(oldDataPoint && isEqual(item, oldDataPoint)));
-        const tableColumns = (!letsReRenderThisRow && oldRow) ?
-            oldRow.props.children :
-            mapColumns(item, columns, useDefaultStyle);
+        const tableColumns = mapColumns(item, columns, useDefaultStyle);
         return createRow(item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle,
             rowWrapperComponent);
     }, this);
@@ -79,8 +73,6 @@ class GridBodyComponent extends React.Component {
             data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent
         } = this.props;
         const tableRows = renderGridMap(
-            null,
-            null,
             data,
             columns,
             rowClickHandler,
