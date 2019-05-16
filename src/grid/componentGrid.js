@@ -18,8 +18,6 @@ const ComponentGridComponent = (props) => {
     rowWrapperComponent,
   } = props;
 
-  console.log('HELLO FROM THE GRID!!!!!!!');
-
   return (
     <div style={style}>
       <GridHeader headerClass={headerClass} columns={columns} useDefaultStyle={useDefaultStyle} />
