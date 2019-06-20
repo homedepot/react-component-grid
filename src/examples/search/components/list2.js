@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import SourceList from './searchTableCells/sourceList';
@@ -65,5 +66,5 @@ export default class ListTwo extends Component {
 }
 
 ListTwo.propTypes = {
-    rows: React.PropTypes.array.isRequired
+    rows: PropTypes.array.isRequired
 };

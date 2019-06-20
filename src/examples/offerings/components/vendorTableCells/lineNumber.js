@@ -1,11 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const LineNumberComponent = lineNumber => (
-	<div>
-		<div>
-			{ lineNumber }
-		</div>
-	</div>
+    <div>
+        <div>
+            { lineNumber }
+        </div>
+    </div>
 );
 
 

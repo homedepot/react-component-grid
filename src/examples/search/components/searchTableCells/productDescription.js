@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const ProductDescriptionComponent = name => (
-  <div>
-    {name}
-  </div>
+    <div>
+        {name}
+    </div>
 );
 
 ProductDescriptionComponent.propTypes = {
