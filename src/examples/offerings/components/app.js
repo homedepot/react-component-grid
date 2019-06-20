@@ -114,10 +114,10 @@ export default class App extends Component {
                 </div>
                 <div className="panel-body">
                     <ComponentGrid
-                      data={data}
-                      columns={columns}
-                      headerClass={'text-primary'}
-                      rowClickHandler={this.onRowClick}
+                        data={data}
+                        columns={columns}
+                        headerClass="text-primary"
+                        rowClickHandler={this.onRowClick}
                     />
                 </div>
             </div>

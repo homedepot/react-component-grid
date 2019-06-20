@@ -58,22 +58,22 @@ export default class List extends Component {
         };
 
         return (
-          <div className="panel panel-default">
-            <div className="panel-heading">
-              <h1>Example - Search Results List One</h1>
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h1>Example - Search Results List One</h1>
+                </div>
+                <div className="panel-body">
+                    <ComponentGrid
+                        data={data}
+                        columns={columns}
+                        headerClass="text-primary"
+                        rowClickHandler={this.onRowClick}
+                        rowHeader={rowHeader}
+                        rowFooter={rowFooter}
+                        style={{ backgroundColor: '#EEE' }}
+                    />
+                </div>
             </div>
-            <div className="panel-body">
-              <ComponentGrid
-                data={data}
-                columns={columns}
-                headerClass={'text-primary'}
-                rowClickHandler={this.onRowClick}
-                rowHeader={rowHeader}
-                rowFooter={rowFooter}
-                style={{ backgroundColor: '#EEE' }}
-              />
-            </div>
-          </div>
         );
     }
 }

@@ -45,22 +45,22 @@ export default class ListTwo extends Component {
         ];
 
         return (
-          <div className="panel panel-default">
+            <div className="panel panel-default">
 
-            <div className="panel-heading">
-              <h1>Example - Search Results List Two</h1>
-            </div>
+                <div className="panel-heading">
+                    <h1>Example - Search Results List Two</h1>
+                </div>
 
-            <div className="panel-body">
-              <ComponentGrid
-                data={data}
-                columns={columns}
-                rowClickHandler={this.onRowClick}
-                headerClass={'text-primary'}
-                useDefaultStyle
-              />
+                <div className="panel-body">
+                    <ComponentGrid
+                        data={data}
+                        columns={columns}
+                        rowClickHandler={this.onRowClick}
+                        headerClass="text-primary"
+                        useDefaultStyle
+                    />
+                </div>
             </div>
-          </div>
         );
     }
 }
