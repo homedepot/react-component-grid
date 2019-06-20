@@ -2,20 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const itemComponent = props => (
-	(props.quantity === 1) ? (<div>{props.baseUnit}</div>) : (<div>{props.baseUnit}s</div>)
+    (props.quantity === 1) ? (
+        <div>{props.baseUnit}</div>
+    ) : (
+        <div>
+            {props.baseUnit}
+            s
+        </div>
+    )
 );
 
 const QuantityComponent = (props) => {
     const baseUnitDisplay = itemComponent(props);
     return (
-		<div>
-			<div>
-				{ props.quantity }
-			</div>
-			<div>
-				{ baseUnitDisplay }
-			</div>
-		</div>
+        <div>
+            <div>
+                { props.quantity }
+            </div>
+            <div>
+                { baseUnitDisplay }
+            </div>
+        </div>
     );
 };
 

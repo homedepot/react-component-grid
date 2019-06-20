@@ -42,8 +42,8 @@ export default class App extends Component {
     }
 
     addTenRows() {
-        const newRows = _.map([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], () =>
-            this.getRow('added row')
+        const newRows = _.map(
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], () => this.getRow('added row')
         );
         const existingData = _.cloneDeep(this.state.data);
         const data = _.concat(existingData, newRows);

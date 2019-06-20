@@ -41,8 +41,8 @@ export default class App extends Component {
                 id: row1Id,
                 source: {
                     name: 'Cascadia Lumber',
-                    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/' +
-                        'Flag_of_Cascadia.svg/250px-Flag_of_Cascadia.svg.png'
+                    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/'
+                    + 'Flag_of_Cascadia.svg/250px-Flag_of_Cascadia.svg.png'
                 },
                 pricing: { unitPrice: 36.28, baseUnit: 'board', bulkPricing: true },
                 leadTime: 3,
