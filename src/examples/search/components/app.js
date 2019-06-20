@@ -52,12 +52,11 @@ export default class App extends Component {
 
     render() {
         return (
-          <div>
-            <List rows={this.state.data} />
-            <button className="btn btn-primary" onClick={this.addTenRows}>More rows, please</button>
-
-            <ListTwo rows={this.state.data} />
-          </div>
+            <div>
+                <List rows={this.state.data} />
+                <button type="button" className="btn btn-primary" onClick={this.addTenRows}>More rows, please</button>
+                <ListTwo rows={this.state.data} />
+            </div>
         );
     }
 }
