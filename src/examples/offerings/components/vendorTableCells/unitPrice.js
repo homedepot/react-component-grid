@@ -8,17 +8,19 @@ const bulkPricingComponent = bulkPricing => (
 const UnitPriceComponent = (props) => {
     const bulkPricing = bulkPricingComponent(props.bulkPricing);
     return (
-		<div>
-			<div>
-				${ props.unitPrice }
-			</div>
-			<div>
-				per { props.baseUnit }
-			</div>
-			<div>
-				{ bulkPricing }
-			</div>
-		</div>
+        <div>
+            <div>
+                $
+                { props.unitPrice }
+            </div>
+            <div>
+                {'per '}
+                { props.baseUnit }
+            </div>
+            <div>
+                { bulkPricing }
+            </div>
+        </div>
     );
 };
 
