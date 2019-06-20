@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const RowFooterComponent = data => (
-  <div>
-    {data}
-  </div>
+    <div>
+        {data}
+    </div>
 );
 
 RowFooterComponent.propTypes = {

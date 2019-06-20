@@ -1,14 +1,15 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const SourceNameComponent = props => (
-	<div>
-		<div>
-			<img style={{ maxWidth: '60px' }} alt={props.name} src={props.imageUrl} />
-		</div>
-		<div>
-			{ props.name }
-		</div>
-	</div>
+    <div>
+        <div>
+            <img style={{ maxWidth: '60px' }} alt={props.name} src={props.imageUrl} />
+        </div>
+        <div>
+            { props.name }
+        </div>
+    </div>
 );
 
 SourceNameComponent.propTypes = {

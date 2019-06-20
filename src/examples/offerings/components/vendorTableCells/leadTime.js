@@ -1,14 +1,15 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const LeadTimeComponent = leadTime => (
-	<div>
-		<div>
-			{ leadTime }
-		</div>
-		<div>
-			Business Days
-		</div>
-	</div>
+    <div>
+        <div>
+            { leadTime }
+        </div>
+        <div>
+            Business Days
+        </div>
+    </div>
 );
 
 

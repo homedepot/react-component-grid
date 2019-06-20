@@ -6,12 +6,11 @@ import isEqual from 'lodash/isEqual';
 import GridRow from './gridRow';
 import GridColumn from './gridColumn';
 
-const mapColumns = (item, columns, useDefaultStyle) =>
-    columns.map((column, i) => {
-        const fieldValue = item[column.data];
-        const fieldComponent = column.component(fieldValue);
-        return (
-          <GridColumn
+const mapColumns = (item, columns, useDefaultStyle) => columns.map((column, i) => {
+    const fieldValue = item[column.data];
+    const fieldComponent = column.component(fieldValue);
+    return (
+        <GridColumn
             key={i}
             style={column.style}
             className={column.className}
@@ -19,15 +18,15 @@ const mapColumns = (item, columns, useDefaultStyle) =>
             flexShrink={column.flexShrink}
             flexBasis={column.flexBasis}
             useDefaultStyle={useDefaultStyle}
-          >
+        >
             {fieldComponent}
-          </GridColumn>);
-    }, this);
+        </GridColumn>
+    );
+}, this);
 
-const isValidRowHeaderOrFooter = obj =>
-    typeof obj === 'object' &&
-    typeof obj.component !== 'undefined' &&
-    typeof obj.data !== 'undefined';
+const isValidRowHeaderOrFooter = obj => typeof obj === 'object'
+    && typeof obj.component !== 'undefined'
+    && typeof obj.data !== 'undefined';
 
 const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent) => {
     let rowHeaderComponent;
@@ -41,37 +40,35 @@ const createRow = (item, tableColumns, rowClickHandler, rowHeader, rowFooter, us
     }
 
     return (
-      <React.Fragment key={item.id}>
-        {rowHeaderComponent}
-        <GridRow
-          rowClickHandler={rowClickHandler}
-          id={item.id}
-          rowClass={item.rowClass}
-          useDefaultStyle={useDefaultStyle}
-          key={item.id}
-          rowWrapperComponent={rowWrapperComponent}
-          item={item}
-        >
-          {tableColumns}
-        </GridRow>
-        {rowFooterComponent}
-      </React.Fragment>
+        <React.Fragment key={item.id}>
+            {rowHeaderComponent}
+            <GridRow
+                rowClickHandler={rowClickHandler}
+                id={item.id}
+                rowClass={item.rowClass}
+                useDefaultStyle={useDefaultStyle}
+                key={item.id}
+                rowWrapperComponent={rowWrapperComponent}
+                item={item}
+            >
+                {tableColumns}
+            </GridRow>
+            {rowFooterComponent}
+        </React.Fragment>
     );
 };
 
 const renderGridMap = (oldRows, oldData, newData, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle,
-                       rowWrapperComponent) =>
-    newData.map((item) => {
-        const oldDataPoint = find(oldData, eachOldData => eachOldData.id === item.id);
-        const foundOldRow = find(oldRows, eachOldRow => eachOldRow.key === item.id);
-        const oldRow = foundOldRow ? find(foundOldRow.children, child => child.key === item.id) : null;
-        const letsReRenderThisRow = (!(oldDataPoint && isEqual(item, oldDataPoint)));
-        const tableColumns = (!letsReRenderThisRow && oldRow) ?
-            oldRow.props.children :
-            mapColumns(item, columns, useDefaultStyle);
-        return createRow(item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle,
-            rowWrapperComponent);
-    }, this);
+    rowWrapperComponent) => newData.map((item) => {
+    const oldDataPoint = find(oldData, eachOldData => eachOldData.id === item.id);
+    const foundOldRow = find(oldRows, eachOldRow => eachOldRow.key === item.id);
+    const oldRow = foundOldRow ? find(foundOldRow.children, child => child.key === item.id) : null;
+    const letsReRenderThisRow = (!(oldDataPoint && isEqual(item, oldDataPoint)));
+    const tableColumns = (!letsReRenderThisRow && oldRow)
+        ? oldRow.props.children : mapColumns(item, columns, useDefaultStyle);
+    return createRow(item, tableColumns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle,
+        rowWrapperComponent);
+}, this);
 
 class GridBodyComponent extends React.Component {
     componentWillMount() {
@@ -93,6 +90,7 @@ class GridBodyComponent extends React.Component {
             tableRows,
         });
     }
+
     componentWillReceiveProps(nextProps) {
         const {
             data, columns, rowClickHandler, rowHeader, rowFooter, useDefaultStyle, rowWrapperComponent
@@ -114,12 +112,13 @@ class GridBodyComponent extends React.Component {
             });
         }
     }
+
     render() {
         const { style } = this.props;
         return (
-          <div style={style}>
-            {this.state.tableRows}
-          </div>
+            <div style={style}>
+                {this.state.tableRows}
+            </div>
         );
     }
 }

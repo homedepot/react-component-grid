@@ -18,11 +18,13 @@ export default class App extends Component {
             selectedId: null
         };
     }
+
     onRowClick(id) {
         this.setState({
             selectedId: id
         });
     }
+
     render() {
         const generateRowClass = (id) => {
             if (id === this.state.selectedId) {
@@ -39,8 +41,8 @@ export default class App extends Component {
                 id: row1Id,
                 source: {
                     name: 'Cascadia Lumber',
-                    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/' +
-                        'Flag_of_Cascadia.svg/250px-Flag_of_Cascadia.svg.png'
+                    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/'
+                    + 'Flag_of_Cascadia.svg/250px-Flag_of_Cascadia.svg.png'
                 },
                 pricing: { unitPrice: 36.28, baseUnit: 'board', bulkPricing: true },
                 leadTime: 3,
@@ -112,10 +114,10 @@ export default class App extends Component {
                 </div>
                 <div className="panel-body">
                     <ComponentGrid
-                      data={data}
-                      columns={columns}
-                      headerClass={'text-primary'}
-                      rowClickHandler={this.onRowClick}
+                        data={data}
+                        columns={columns}
+                        headerClass="text-primary"
+                        rowClickHandler={this.onRowClick}
                     />
                 </div>
             </div>

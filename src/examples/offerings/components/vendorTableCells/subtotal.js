@@ -1,11 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const SubtotalComponent = subtotal => (
-	<div>
-		<div>
-			${ subtotal }
-		</div>
-	</div>
+    <div>
+        <div>
+            $
+            { subtotal }
+        </div>
+    </div>
 );
 
 SubtotalComponent.propTypes = {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import SourceList from './searchTableCells/sourceList';
@@ -44,27 +45,26 @@ export default class ListTwo extends Component {
         ];
 
         return (
-          <div className="panel panel-default">
+            <div className="panel panel-default">
 
-            <div className="panel-heading">
-              <h1>Example - Search Results List Two</h1>
+                <div className="panel-heading">
+                    <h1>Example - Search Results List Two</h1>
+                </div>
+
+                <div className="panel-body">
+                    <ComponentGrid
+                        data={data}
+                        columns={columns}
+                        rowClickHandler={this.onRowClick}
+                        headerClass="text-primary"
+                        useDefaultStyle
+                    />
+                </div>
             </div>
-
-            <div className="panel-body">
-              <ComponentGrid
-                data={data}
-                columns={columns}
-                rowClickHandler={this.onRowClick}
-                headerClass={'text-primary'}
-                useDefaultStyle
-              />
-            </div>
-
-          </div>
         );
     }
 }
 
 ListTwo.propTypes = {
-    rows: React.PropTypes.array.isRequired
+    rows: PropTypes.array.isRequired
 };

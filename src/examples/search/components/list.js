@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import SourceList from './searchTableCells/sourceList';
@@ -11,6 +12,7 @@ import ComponentGrid from '../../../grid/componentGrid';
 export default class List extends Component {
     onRowClick() {
     }
+
     render() {
         const { rows } = this.props;
         const data = _.map(rows, (row, i) => (
@@ -56,26 +58,26 @@ export default class List extends Component {
         };
 
         return (
-          <div className="panel panel-default">
-            <div className="panel-heading">
-              <h1>Example - Search Results List One</h1>
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h1>Example - Search Results List One</h1>
+                </div>
+                <div className="panel-body">
+                    <ComponentGrid
+                        data={data}
+                        columns={columns}
+                        headerClass="text-primary"
+                        rowClickHandler={this.onRowClick}
+                        rowHeader={rowHeader}
+                        rowFooter={rowFooter}
+                        style={{ backgroundColor: '#EEE' }}
+                    />
+                </div>
             </div>
-            <div className="panel-body">
-              <ComponentGrid
-                data={data}
-                columns={columns}
-                headerClass={'text-primary'}
-                rowClickHandler={this.onRowClick}
-                rowHeader={rowHeader}
-                rowFooter={rowFooter}
-                style={{ backgroundColor: '#EEE' }}
-              />
-            </div>
-          </div>
         );
     }
 }
 
 List.propTypes = {
-    rows: React.PropTypes.array.isRequired
+    rows: PropTypes.array.isRequired
 };
