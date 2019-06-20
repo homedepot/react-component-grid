@@ -11,6 +11,7 @@ import ComponentGrid from '../../../grid/componentGrid';
 export default class List extends Component {
     onRowClick() {
     }
+
     render() {
         const { rows } = this.props;
         const data = _.map(rows, (row, i) => (

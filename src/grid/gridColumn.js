@@ -6,15 +6,16 @@ class GridColumnComponent extends React.Component {
     shouldComponentUpdate(nextProps) {
         return !isEqual(this.props.children, nextProps.children);
     }
+
     render() {
         const flexSize = this.props.flexGrow || '1';
         const flexShrink = this.props.flexShrink || '0';
         const flexBasis = this.props.flexBasis || '0px';
         const style = this.props.useDefaultStyle ? { flex: `${flexSize} ${flexShrink} ${flexBasis}` } : {};
         return (
-          <div style={{ ...this.props.style, ...style }} className={this.props.className}>
-            {this.props.children}
-          </div>
+            <div style={{ ...this.props.style, ...style }} className={this.props.className}>
+                {this.props.children}
+            </div>
         );
     }
 }

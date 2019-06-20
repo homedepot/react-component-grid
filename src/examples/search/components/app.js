@@ -29,6 +29,7 @@ export default class App extends Component {
         this.addTenRows = this.addTenRows.bind(this);
         this.state = { data };
     }
+
     getRow(name) {
         return {
             rowNumber: 1,
@@ -39,6 +40,7 @@ export default class App extends Component {
             rowClass: 'text-muted'
         };
     }
+
     addTenRows() {
         const newRows = _.map([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], () =>
             this.getRow('added row')
@@ -47,6 +49,7 @@ export default class App extends Component {
         const data = _.concat(existingData, newRows);
         this.setState({ data });
     }
+
     render() {
         return (
           <div>
@@ -54,7 +57,6 @@ export default class App extends Component {
             <button className="btn btn-primary" onClick={this.addTenRows}>More rows, please</button>
 
             <ListTwo rows={this.state.data} />
-
           </div>
         );
     }

@@ -10,9 +10,9 @@ const renderColumnHeaders = (columns, useDefaultStyle) => (
         const style = useDefaultStyle ? { flex: `${flexSize} ${flexShrink} ${flexBasis}` } : {};
 
         return (
-          <div key={i} style={{ ...column.style, ...style }}>
-            {column.header}
-          </div>
+            <div key={i} style={{ ...column.style, ...style }}>
+                {column.header}
+            </div>
         );
     })
 );
@@ -22,9 +22,9 @@ const GridHeaderComponent = (props) => {
     const headerColumns = renderColumnHeaders(columns, useDefaultStyle);
     const style = useDefaultStyle ? { display: 'flex' } : {};
     return (
-      <div className={headerClass} style={style}>
-        {headerColumns}
-      </div>
+        <div className={headerClass} style={style}>
+            {headerColumns}
+        </div>
     );
 };
 

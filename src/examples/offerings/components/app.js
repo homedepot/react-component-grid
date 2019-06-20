@@ -18,11 +18,13 @@ export default class App extends Component {
             selectedId: null
         };
     }
+
     onRowClick(id) {
         this.setState({
             selectedId: id
         });
     }
+
     render() {
         const generateRowClass = (id) => {
             if (id === this.state.selectedId) {

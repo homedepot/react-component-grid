@@ -1,4 +1,5 @@
 'use strict';
+
 var rimraf = require('rimraf-promise');
 var colors = require('colors');
 var exec = require('child-process-promise').exec;

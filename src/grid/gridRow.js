@@ -7,15 +7,18 @@ export default class GridRowComponent extends React.Component {
         super(props);
         this.onClick = this.onClick.bind(this);
     }
+
     shouldComponentUpdate(nextProps) {
         return !isEqual(this.props, nextProps);
     }
+
     onClick() {
         const { rowClickHandler } = this.props;
         if (rowClickHandler) {
             rowClickHandler(this.props.id);
         }
     }
+
     render() {
         const {
             useDefaultStyle,
@@ -40,9 +43,9 @@ export default class GridRowComponent extends React.Component {
         const WrapperComponent = rowWrapperComponent || 'div';
 
         return (
-          <WrapperComponent {...wrapperProps}>
-            {children}
-          </WrapperComponent>
+            <WrapperComponent {...wrapperProps}>
+                {children}
+            </WrapperComponent>
         );
     }
 }

@@ -19,19 +19,19 @@ const ComponentGridComponent = (props) => {
     } = props;
 
     return (
-      <div style={style}>
-        <GridHeader headerClass={headerClass} columns={columns} useDefaultStyle={useDefaultStyle} />
-        <GridBody
-          data={data}
-          columns={columns}
-          rowClickHandler={rowClickHandler}
-          style={rowsContainerStyle}
-          useDefaultStyle={useDefaultStyle}
-          rowHeader={rowHeader}
-          rowFooter={rowFooter}
-          rowWrapperComponent={rowWrapperComponent}
-        />
-      </div>
+        <div style={style}>
+            <GridHeader headerClass={headerClass} columns={columns} useDefaultStyle={useDefaultStyle} />
+            <GridBody
+                data={data}
+                columns={columns}
+                rowClickHandler={rowClickHandler}
+                style={rowsContainerStyle}
+                useDefaultStyle={useDefaultStyle}
+                rowHeader={rowHeader}
+                rowFooter={rowFooter}
+                rowWrapperComponent={rowWrapperComponent}
+            />
+        </div>
     );
 };
 

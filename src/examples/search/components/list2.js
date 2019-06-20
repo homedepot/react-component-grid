@@ -59,7 +59,6 @@ export default class ListTwo extends Component {
                 useDefaultStyle
               />
             </div>
-
           </div>
         );
     }
